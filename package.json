@@ -1,7 +1,7 @@
 {
   "name": "someones-there",
   "version": "1.0.0",
-  "description": "",
+  "description": "To send link to iOS phone: exp start --send-to <insert phone#>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,5 +16,7 @@
   "bugs": {
     "url": "https://github.com/Montana-Code-School/someones-there/issues"
   },
-  "homepage": "https://github.com/Montana-Code-School/someones-there#readme"
+  "homepage": "https://github.com/Montana-Code-School/someones-there#readme",
+  "devDependencies": {},
+  "dependencies": {}
 }
