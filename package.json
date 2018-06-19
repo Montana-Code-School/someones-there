@@ -1,0 +1,20 @@
+{
+  "name": "someones-there",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "cd front && exp start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Montana-Code-School/someones-there.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Montana-Code-School/someones-there/issues"
+  },
+  "homepage": "https://github.com/Montana-Code-School/someones-there#readme"
+}
