@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { ScrollView, StyleSheet, View, Image } from 'react-native';
 import {Text, Button, Avatar } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import  LogoTitle  from './LogoTitle.js';
@@ -10,22 +10,22 @@ class LandingPage extends React.Component {
   };
   render() {
     return (
-  <View style={styles.container}>
+  <ScrollView style={styles.container}>
     <View style={styles.titleContainer}>
-      <Avatar
-          medium
-          rounded
-          source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"}}
-          onPress={() => console.log("Works!")}
-          activeOpacity={0.7}
-      />
-      <Text style={styles.title} h1>Hygge</Text>
+      <Image
+        style={styles.logo}
+        source={require('../placement-pictures/coffeeLove.png')}
+        />
+        <Text style={styles.title} h1>Nevaeh</Text>
     </View>
-      <View style={styles.imageView}>
-       <Image  style={styles.pic}source={require('../placement-pictures/pug.jpg')} />
-        <Text h3>Meow</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-        <View style={styles.buttons}>
+    <View style={styles.imageView}>
+       <Image
+            style={styles.pic}
+            source={require('../placement-pictures/pug.jpg')}
+        />
+        <Text h3></Text>
+        <Text>Dont have an account yet? Hit create account</Text>
+    <View style={styles.buttons}>
         <Button
            rounded
            raised
@@ -36,7 +36,6 @@ class LandingPage extends React.Component {
            onPress={ () =>
            this.props.navigation.navigate('SignUp')
          }
-
         />
         <Button
            rounded
@@ -45,13 +44,11 @@ class LandingPage extends React.Component {
            color="#FFFFFF"
            backgroundColor="#0b2793"
            accessibilityLabel="Learn more about this purple button"
-           onPress={ () =>
-           this.props.navigation.navigate('LogIn')
-         }
+           onPress={ () => this.props.navigation.navigate('LogIn')}
         />
         </View>
       </View>
-   </View>
+   </ScrollView>
     );
   }
 }
@@ -64,28 +61,33 @@ const styles = StyleSheet.create({
     backgroundColor: '#91e4fb',
   },
   titleContainer: {
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     flexDirection: "row",
-    padding: 30
+    padding: 15,
+    margin: 15
 },
-disciption: {
-
-},
-  title: {
-    fontWeight: "bold",
-  },
   pic: {
-    height: 200,
-    width: 200,
-    alignContent: "center"
+    height: 270,
+    width: 270,
+    alignContent: "center",
+    paddingBottom: 15
   },
   imageView:{
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    marginBottom: 50
   },
   buttons: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
+    marginBottom: 50
+  },
+  logo: {
+    height: 50,
+    width: 50,
+  },
+  title: {
+    fontFamily: "Monospace"
   }
 });
