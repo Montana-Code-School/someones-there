@@ -1,22 +1,29 @@
 {
   "name": "someones-there",
-  "version": "1.0.0",
-  "description": "To send link to iOS phone: exp start --send-to <insert phone#>",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "jest-expo": "~27.0.0",
+    "react-native-scripts": "^1.14.1",
+    "react-test-renderer": "16.3.1"
+  },
+  "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cd front && exp start"
+    "eject": "react-native-scripts eject",
+    "android": "react-native-scripts android",
+    "ios": "react-native-scripts ios",
+    "test": "jest",
+    "start": "exp start",
+    "build": "npm run-script build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Montana-Code-School/someones-there.git"
+  "jest": {
+    "preset": "jest-expo"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Montana-Code-School/someones-there/issues"
-  },
-  "homepage": "https://github.com/Montana-Code-School/someones-there#readme",
-  "devDependencies": {},
-  "dependencies": {}
+  "dependencies": {
+    "expo": "^27.0.1",
+    "react": "16.3.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
+    "react-native-elements": "^0.19.1",
+    "react-navigation": "^2.4.1"
+  }
 }
