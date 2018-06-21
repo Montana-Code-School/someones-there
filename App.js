@@ -3,6 +3,9 @@ import { StyleSheet, View, Image } from 'react-native';
 import {Text, Button, Avatar } from 'react-native-elements';
 
 
+import { StackNavigator } from 'react-navigation';
+
+
 
 export default class App extends React.Component {
   render() {
@@ -32,6 +35,22 @@ export default class App extends React.Component {
     );
   }
 }
+
+const RootStack = createStackNavigator(
+  {
+    Landing: LandingPage,
+    SignUp: SignUpPage,
+    LogIn: LogInPage,
+    SetUp: SetUpPage,
+    Dashboard: DashboardPage,
+    Crisis: CrisisPage,
+    Preferences: PreferencesPage,
+  },
+  {
+    initialRouteName: 'Landing',
+  }
+);
+
 
 const styles = StyleSheet.create({
   container: {
