@@ -1,6 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
+import { StackNavigator } from 'react-navigation';
+
+
 
 export default class App extends React.Component {
   render() {
@@ -19,6 +22,22 @@ export default class App extends React.Component {
     );
   }
 }
+
+const RootStack = createStackNavigator(
+  {
+    Landing: LandingPage,
+    SignUp: SignUpPage,
+    LogIn: LogInPage,
+    SetUp: SetUpPage,
+    Dashboard: DashboardPage,
+    Crisis: CrisisPage,
+    Preferences: PreferencesPage,
+  },
+  {
+    initialRouteName: 'Landing',
+  }
+);
+
 
 const styles = StyleSheet.create({
   container: {
