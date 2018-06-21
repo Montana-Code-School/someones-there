@@ -1,7 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { withNavigation } from 'react-navigation';
 
-export default class App extends React.Component {
+
+export default class DashboardPage extends React.Component {
   render() {
     return (
 
