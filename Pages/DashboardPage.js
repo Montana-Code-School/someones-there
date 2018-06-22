@@ -11,6 +11,7 @@ import ModalDropdown from 'react-native-modal-dropdown';
       render() {
         return (
      <ScrollView style={styles.container}>
+     // https://github.com/sohobloo/react-native-modal-dropdown
        <ModalDropdown options={['Settings', 'Log Out', 'Find Help']}/>
         <View style={styles.titleContainer}>
           <Avatar

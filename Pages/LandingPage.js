@@ -20,8 +20,8 @@ class LandingPage extends React.Component {
     </View>
     <View style={styles.imageView}>
        <Image
-            style={styles.pic}
-            source={require('../placement-pictures/pug.jpg')}
+         style={styles.pic}
+         source={require('../placement-pictures/pug.jpg')}
         />
         <Text h3></Text>
         <Text style={styles.taglineStyle}>Always have someone there for you.</Text>
