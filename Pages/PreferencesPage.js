@@ -1,5 +1,7 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { withNavigation } from 'react-navigation';
+
 
 export default class PreferencesPage extends React.Component {
   render() {
@@ -18,3 +20,8 @@ export default class PreferencesPage extends React.Component {
     );
   }
 }
+
+//Wrapping the entire component in
+//the withNavigation function allows us to
+//access this.props.navigation.navigate
+export default withNavigation(PreferencesPage);
