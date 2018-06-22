@@ -87,7 +87,6 @@ class SetUpPage extends React.Component {
 
 export default withNavigation(SetUpPage);
 
-
 const styles = StyleSheet.create({
 buttonStyle: {
   margin: 10,
