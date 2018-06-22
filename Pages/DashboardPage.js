@@ -4,41 +4,42 @@ import { withNavigation } from 'react-navigation';
 import {Text, Button, Avatar } from 'react-native-elements';
 import ModalDropdown from 'react-native-modal-dropdown';
 
-class DashboardPage extends React.Component {
+  class DashboardPage extends React.Component {
 
-static navigationOptions = {
-  title: "Dashboard",
-};
+    static navigationOptions = {
+      title: "Dashboard",
+    };
 
-render() {
-return (
-    <ScrollView style={styles.container}>
-      <ModalDropdown options={['Settings', 'Log Out', 'Find Help']}/>
-      <View style={styles.titleContainer}>
-        <Avatar
-          size="medium"
-          rounded
-          source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"}}
-          onPress={() => console.log("Works!")}
-          activeOpacity={0.7}
-        />
-        <Text h2>Welcome, User!</Text>\
-      </View>
-      <View style={styles.textView}>
-        <Text h4>How is your day going today?</Text>
-      </View>
-      <View style={styles.imageView}>
-        <Image
-           style={styles.pic}
-           source={require('../placement-pictures/pug.jpg')}
-        />
-        <Text h3></Text>
-        <Text style={styles.taglineStyle}>insert quote here</Text>
-      </View>
-    </ScrollView>
-    );
-  }
-}
+    render() {
+      return (
+         <ScrollView style={styles.container}>
+         // https://github.com/sohobloo/react-native-modal-dropdown
+           <ModalDropdown options={['Settings', 'Log Out', 'Find Help']}/>
+            <View style={styles.titleContainer}>
+              <Avatar
+                size="medium"
+                rounded
+                source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"}}
+                onPress={() => console.log("Works!")}
+                activeOpacity={0.7}
+              />
+              <Text h2>Welcome, User!</Text>\
+            </View>
+            <View style={styles.textView}>
+               <Text h4>How is your day going today?</Text>
+            </View>
+            <View style={styles.imageView}>
+               <Image
+                  style={styles.pic}
+                  source={require('../placement-pictures/pug.jpg')}
+               />
+                <Text h3></Text>
+                <Text style={styles.taglineStyle}>insert quote here</Text>
+              </View>
+          </ScrollView>
+        );
+      }
+    }
 
 const styles = StyleSheet.create({
 container: {

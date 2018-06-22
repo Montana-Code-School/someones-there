@@ -6,7 +6,6 @@ import { withNavigation } from 'react-navigation';
 export default class PreferencesPage extends React.Component {
   render() {
     return (
-
       <View style={styles.container}>
         <Text style={styles.title}>Someones There</Text>
         <Text>Changes you make will automatically reload.</Text>
