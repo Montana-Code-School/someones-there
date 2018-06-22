@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ScrollView, StyleSheet, View, AppRegistry, TextInput } from 'react-native';
 import { withNavigation } from 'react-navigation';
-import { Text, Button, Avatar } from 'react-native-elements';
+import { Text, Button, Avatar, Card } from 'react-native-elements';
+
 
 class LogInPage extends React.Component {
   static navigationOptions = {
@@ -9,19 +10,39 @@ class LogInPage extends React.Component {
   };
   render() {
     return (
-
+      <ScrollView style={styles.container}>
+      <Card title="Login">
       <View>
-        <Text >Someones There</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
+        <Text h4>Email:</Text>
+        <TextInput
+        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        />
+        <Text h4>password:</Text>
+        <TextInput
+          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        />
         <Button
-           title="Create Account"
-           color="#841584"
-           accessibilityLabel="Learn more about this purple button"
+           rounded
+           title="Login"
+           color="#FFFFFF"
+           backgroundColor="#0b2793"
+           accessibilityLabel="Login button"
+           onPress={ () => this.props.navigation.navigate('Dashboard')}
+        />
         />
       </View>
+      </Card>
+      </ScrollView>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#91e4fb',
+  }
+})
+
 
 export default withNavigation(LogInPage);
