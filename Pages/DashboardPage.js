@@ -1,23 +1,79 @@
 import React from 'react';
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { ScrollView, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import {Text, Button, Avatar } from 'react-native-elements';
+import ModalDropdown from 'react-native-modal-dropdown';
 
+  class DashboardPage extends React.Component {
+      static navigationOptions = {
+      title: "Dashboard",
+      };
+      render() {
+        return (
+     <ScrollView style={styles.container}>
+       <ModalDropdown options={['Settings', 'Log Out', 'Find Help']}/>
+        <View style={styles.titleContainer}>
+          <Avatar
+            size="medium"
+            rounded
+            source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"}}
+            onPress={() => console.log("Works!")}
+            activeOpacity={0.7}
+          />
+          <Text h2>Welcome, User!</Text>\
+        </View>
+        <View style={styles.textView}>
+           <Text h4>How is your day going today?</Text>
+        </View>
+        <View style={styles.imageView}>
+           <Image
+              style={styles.pic}
+              source={require('../placement-pictures/pug.jpg')}
+           />
+            <Text h3></Text>
+            <Text style={styles.taglineStyle}>insert quote here</Text>
+          </View>
+      </ScrollView>
+        );
+      }
+    }
 
-export default class DashboardPage extends React.Component {
-  render() {
-    return (
+    const styles = StyleSheet.create({
+      container: {
+        flex: 1,
+        backgroundColor: '#91e4fb',
+      },
+      titleContainer: {
+        justifyContent: 'space-evenly',
+        flexDirection: "row",
+        margin: 15
+    },
+      pic: {
+        height: 270,
+        width: 270,
+        alignContent: "center",
+      },
+      textView:{
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 10,
+      },
+      imageView:{
+        justifyContent: "center",
+        alignItems: "center",
+        marginBottom: 10,
+      },
+      buttons: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center",
+        marginTop: 25
+      },
+      taglineStyle: {
+        fontSize: 15,
+        textAlign: 'center',
+        marginTop: 10
+      }
+    });
 
-      <View>
-        <Text>Someones There</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-        <Button
-           title="Create Account"
-           color="#841584"
-           accessibilityLabel="Learn more about this purple button"
-           onPress={ () => console.log("meow")}
-        />
-      </View>
-    );
-  }
-}
+    export default withNavigation(DashboardPage);

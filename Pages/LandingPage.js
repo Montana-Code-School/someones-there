@@ -3,7 +3,6 @@ import { ScrollView, StyleSheet, View, Image } from 'react-native';
 import {Text, Button, Avatar } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import  LogoTitle  from './LogoTitle.js';
-import Hyperlink from 'react-native-hyperlink';
 
 class LandingPage extends React.Component {
   static navigationOptions = {
@@ -17,7 +16,7 @@ class LandingPage extends React.Component {
         style={styles.logo}
         source={require('../placement-pictures/coffeeLove.png')}
         />
-        <Text style={styles.title} h1>Nevaeh</Text>
+        <Text style={styles.title} h1>Navi</Text>
     </View>
     <View style={styles.imageView}>
        <Image
