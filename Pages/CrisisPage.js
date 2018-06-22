@@ -4,6 +4,7 @@ import { withNavigation } from 'react-navigation';
 
 
 export default class CrisisPage extends React.Component {
+
   render() {
     return (
       <View style={styles.container}>
@@ -19,3 +20,8 @@ export default class CrisisPage extends React.Component {
     );
   }
 }
+
+//Wrapping the entire component in
+//the withNavigation function allows us to
+//access this.props.navigation.navigate
+export default withNavigation(CrisisPage);
