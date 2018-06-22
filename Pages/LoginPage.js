@@ -1,8 +1,7 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, AppRegistry, TextInput } from 'react-native';
+import { ScrollView, StyleSheet, View, AppRegistry } from 'react-native';
 import { withNavigation } from 'react-navigation';
-import { Text, Button, Avatar, Card } from 'react-native-elements';
-
+import { Text, Button, Avatar, Card, FormInput } from 'react-native-elements';
 
 class LogInPage extends React.Component {
   static navigationOptions = {
@@ -13,19 +12,22 @@ class LogInPage extends React.Component {
       <ScrollView style={styles.container}>
       <Card title="Login">
       <View>
-        <Text h4>Email:</Text>
-        <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        <FormInput
+        placeholder = "Email"
+        style={{height: 40}}
         />
-        <Text h4>password:</Text>
-        <TextInput
-          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+        <FormInput
+        placeholder = "Password"
+          style={{height: 40}}
         />
         <Button
+           medium
            rounded
+           style={{padding: 30}}
            title="Login"
            color="#FFFFFF"
            backgroundColor="#0b2793"
+           icon={{name: 'user-circle', type: 'font-awesome'}}
            accessibilityLabel="Login button"
            onPress={ () => this.props.navigation.navigate('Dashboard')}
         />
@@ -43,6 +45,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#91e4fb',
   }
 })
-
 
 export default withNavigation(LogInPage);
