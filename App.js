@@ -21,7 +21,7 @@ const RootStack = createStackNavigator(
     Preferences: PreferencesPage,
   },
   {
-    initialRouteName: 'Landing',
+    initialRouteName: 'SetUp',
     navigationOptions: {
       headerStyle:{
         backgroundColor: "#6d2493"
