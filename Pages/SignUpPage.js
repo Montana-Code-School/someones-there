@@ -15,6 +15,7 @@ class SignUpPage extends React.Component {
         <Card
           title='Sign Up'
           titleStyle = {styles.cardTitle}
+          containerStyle = {styles.cardContainer}
         >
           <FormInput
             placeholder = 'First Name'
@@ -65,5 +66,8 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 20
+  },
+  containerCard: {
+    padding: 40
   }
 })
