@@ -11,6 +11,7 @@ import { createStackNavigator } from 'react-navigation';
 import LandingPage from './Pages/LandingPage.js';
 
 const RootStack = createStackNavigator(
+  // Creating the navigation for our application
   {
     Landing: LandingPage,
     SignUp: SignUpPage,
@@ -21,18 +22,21 @@ const RootStack = createStackNavigator(
     Preferences: PreferencesPage,
   },
   {
+    //Setting the initial route for our application
     initialRouteName: 'Landing',
     navigationOptions: {
-      headerStyle:{
+    headerStyle:{
+    //setting the purple color of the nav bar
         backgroundColor: "#6d2493"
       },
-      headerTintColor: "#ffffff"
+    //setting the title and arrow color in the nav bar
+    headerTintColor: "#ffffff"
       }
   }
 );
 
 export default class App extends React.Component{
-
+//Rendering the rootstack which is setting our navigation
   render(){
     return <RootStack />;
   }
