@@ -4,7 +4,7 @@ import {Text, Button, Avatar } from 'react-native-elements';
 import SignUpPage from './Pages/SignUpPage.js';
 import SetUpPage from './Pages/SetUpPage.js';
 import PreferencesPage from './Pages/PreferencesPage.js';
-import LogInPage from './Pages/LogInPage.js';
+import LoginPage from './Pages/LoginPage.js';
 import DashboardPage from './Pages/DashboardPage.js';
 import CrisisPage from './Pages/CrisisPage.js';
 import { createStackNavigator } from 'react-navigation';
@@ -14,7 +14,7 @@ const RootStack = createStackNavigator(
   {
     Landing: LandingPage,
     SignUp: SignUpPage,
-    LogIn: LogInPage,
+    LogIn: LoginPage,
     SetUp: SetUpPage,
     Dashboard: DashboardPage,
     Crisis: CrisisPage,
