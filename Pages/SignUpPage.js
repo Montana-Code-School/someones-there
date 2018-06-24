@@ -1,7 +1,14 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { withNavigation } from 'react-navigation';
-import {Text, Button, Avatar, Card, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
+import {
+  Text,
+  Button,
+  Avatar,
+  Card,
+  FormLabel,
+  FormInput,
+  FormValidationMessage } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 class SignUpPage extends React.Component {
@@ -10,50 +17,51 @@ class SignUpPage extends React.Component {
   };
   render() {
     return (
-
       <View>
         <Card
           title='Sign Up'
           titleStyle = {styles.cardTitle}
-        >
-          <FormInput
-            placeholder = 'First Name'
-            containerStyle = {styles.formInput}
-          />
-          <FormInput
-            placeholder = 'Last Name'
-            containerStyle = {styles.formInput}
-          />
-          <FormInput
-            placeholder = 'Email'
-            containerStyle = {styles.formInput}
-          />
-          <FormInput
-            placeholder = 'Password (8+ characters)'
-            containerStyle = {styles.formInput}
-          />
-          <FormInput
-            placeholder = 'Birthday'
-            containerStyle = {styles.formInput}
-          />
-          <Button
-             buttonStyle = {styles.buttonStyle}
-             large
-             rounded
-             raised
-             icon={{name: 'user-circle', type: 'font-awesome'}}
-             title="Create Account"
-             color="#FFFFFF"
-             backgroundColor="#0b2793"
-             accessibilityLabel= "Create Account"
-             onPress={ () => this.props.navigation.navigate('LogIn')}
-          />
+          containerStyle = {styles.cardContainer}>
+            <FormInput
+              placeholder = 'First Name'
+              containerStyle = {styles.formInput}
+            />
+            <FormInput
+              placeholder = 'Last Name'
+              containerStyle = {styles.formInput}
+            />
+            <FormInput
+              placeholder = 'Email'
+              containerStyle = {styles.formInput}
+            />
+            <FormInput
+              placeholder = 'Password (8+ characters)'
+              containerStyle = {styles.formInput}
+            />
+            <FormInput
+              placeholder = 'Birthday'
+              containerStyle = {styles.formInput}
+            />
+            <Button
+               buttonStyle = {styles.buttonStyle}
+               large
+               rounded
+               raised
+               icon={{name: 'user-circle', type: 'font-awesome'}}
+               title="Create Account"
+               color="#FFFFFF"
+               backgroundColor="#0b2793"
+               accessibilityLabel= "Create Account"
+               onPress={ () => this.props.navigation.navigate('LogIn')}/>
         </Card>
       </View>
     );
   }
 }
 
+//Wrapping the entire component in
+//the withNavigation function allows us to
+//access this.props.navigation.navigate
 export default withNavigation(SignUpPage)
 
 const styles = StyleSheet.create({
@@ -65,5 +73,8 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 20
+  },
+  containerCard: {
+    padding: 40
   }
 })
