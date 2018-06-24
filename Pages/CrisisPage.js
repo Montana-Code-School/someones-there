@@ -2,8 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
-
-export default class CrisisPage extends React.Component {
+class CrisisPage extends React.Component {
 
   render() {
     return (

@@ -2,8 +2,7 @@ import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
-
-export default class PreferencesPage extends React.Component {
+ class PreferencesPage extends React.Component {
   render() {
     return (
       <View style={styles.container}>

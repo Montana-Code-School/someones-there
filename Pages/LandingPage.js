@@ -58,7 +58,10 @@ class LandingPage extends React.Component {
 
 //Wrapping the entire component in
 //the withNavigation function allows us to
-//access this.props.navigation.navigateexport default withNavigation(LandingPage);
+//access this.props.navigation.navigate
+
+export default withNavigation(LandingPage);
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
