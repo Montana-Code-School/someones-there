@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet, View, AppRegistry } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import { Text, Button, Avatar, Card, FormInput } from 'react-native-elements';
 
-class LogInPage extends React.Component {
+class LoginPage extends React.Component {
   static navigationOptions = {
     title: "Login Page",
   };
@@ -46,4 +46,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default withNavigation(LogInPage);
+export default withNavigation(LoginPage);
