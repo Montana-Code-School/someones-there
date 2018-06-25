@@ -10,13 +10,11 @@ class SignUpPage extends React.Component {
   };
   render() {
     return (
-
       <View>
         <Card
           title='Sign Up'
           titleStyle = {styles.cardTitle}
-          containerStyle = {styles.cardContainer}
-        >
+          containerStyle = {styles.cardContainer}>
           <FormInput
             placeholder = 'First Name'
             containerStyle = {styles.formInput}
@@ -47,7 +45,7 @@ class SignUpPage extends React.Component {
              color="#FFFFFF"
              backgroundColor="#0b2793"
              accessibilityLabel= "Create Account"
-             onPress={ () => this.props.navigation.navigate('LogIn')}
+             onPress={ () => this.props.navigation.navigate('SetUp')}
           />
         </Card>
       </View>

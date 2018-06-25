@@ -11,7 +11,7 @@ import ModalDropdown from 'react-native-modal-dropdown';
       render() {
         return (
      <ScrollView style={styles.container}>
-       <ModalDropdown options={['Settings', 'Log Out', 'Find Help']}/>
+        <ModalDropdown dropdownStyle= {styles.dropdownStyle} textStyle = {styles.dropdownTextStyle} style = {styles.dropdownButtonStyle} title = 'Menu' options={['Preferences', 'Log Out', 'Crisis']}/>
         <View style={styles.titleContainer}>
           <Avatar
             size="medium"
@@ -73,7 +73,26 @@ import ModalDropdown from 'react-native-modal-dropdown';
         fontSize: 15,
         textAlign: 'center',
         marginTop: 10
+      },
+      dropdownButtonStyle: {
+        backgroundColor:"#0b2793",
+        width: 150,
+        height: 40,
+        borderRadius: 15,
+        alignSelf: 'flex-end',
+        margin: 5
+      },
+      dropdownTextStyle: {
+        color:"#ffffff",
+        textAlign:'center',
+        padding:10,
+        fontSize:15
+      },
+      dropdownStyle: {
+        width: 150,
+        height: 100,
+        borderRadius: 15
       }
     });
 
-    export default withNavigation(DashboardPage);
+export default withNavigation(DashboardPage);
