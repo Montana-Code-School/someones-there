@@ -2,17 +2,10 @@ import React from 'react';
 import { ScrollView, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import {Text, Button, Avatar } from 'react-native-elements';
-import Modal from '../Components/Modal';
+import ModalExample from '../Components/Modal';
 
   class DashboardPage extends React.Component {
 
-    constructor(props) {
-       super(props);
-
-       this.state = {
-         textInputValue: ''
-        }
-    }
     static navigationOptions = {
       title: "Dashboard",
     };
@@ -20,7 +13,7 @@ import Modal from '../Components/Modal';
     render() {
       return (
         <ScrollView>
-          <Modal />
+          <ModalExample />
 
         <View style={styles.titleContainer}>
           <Avatar

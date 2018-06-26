@@ -9,6 +9,7 @@ import DashboardPage from './Pages/DashboardPage.js';
 import CrisisPage from './Pages/CrisisPage.js';
 import { createStackNavigator } from 'react-navigation';
 import LandingPage from './Pages/LandingPage.js';
+import Modal from './Components/Modal.js';
 
 const RootStack = createStackNavigator(
   // Creating the navigation for our application
@@ -20,6 +21,7 @@ const RootStack = createStackNavigator(
     Dashboard: DashboardPage,
     Crisis: CrisisPage,
     Preferences: PreferencesPage,
+    Modal: Modal,
   },
   {
     //Setting the initial route for our application
