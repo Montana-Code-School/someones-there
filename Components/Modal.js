@@ -40,7 +40,7 @@ class ModalExample extends Component {
                     this.props.navigation.navigate("Dashboard")
                     this.toggleModal(!this.state.modalVisible)
                   }}/>
-                  
+
                   <Button
                   medium
                   rounded
