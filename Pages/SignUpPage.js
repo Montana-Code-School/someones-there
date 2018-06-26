@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ReactNativeComponentTree } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import {
   Text,
@@ -10,8 +10,27 @@ import {
   FormInput,
   FormValidationMessage } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Expo from 'expo';
+const { manifest } = Expo.Constants;
+const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
+  manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
+  `api.example.com`
+  //replace api.example.com with our production host
+
 
 class SignUpPage extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+        birthday: ''
+    };
+  }
+
   static navigationOptions = {
     title: "Sign Up",
   };
@@ -24,23 +43,38 @@ class SignUpPage extends React.Component {
           containerStyle = {styles.cardContainer}>
             <FormInput
               placeholder = 'First Name'
+              ref = {(el) => {this.firstName = el; }}
               containerStyle = {styles.formInput}
+              onChangeText = {(firstName) => this.setState({firstName})}
+              value={this.state.firstName}
             />
             <FormInput
               placeholder = 'Last Name'
+              ref = {(el) => {this.lastName = el; }}
               containerStyle = {styles.formInput}
+              onChangeText = {(lastName) => this.setState({lastName})}
+              value={this.state.lastName}
             />
             <FormInput
               placeholder = 'Email'
+              ref = {(el) => {this.email = el; }}
               containerStyle = {styles.formInput}
+              onChangeText = {(email) => this.setState({email})}
+              value={this.state.email}
             />
             <FormInput
               placeholder = 'Password (8+ characters)'
+              ref = {(el) => {this.password = el; }}
               containerStyle = {styles.formInput}
+              onChangeText = {(password) => this.setState({password})}
+              value={this.state.password}
             />
             <FormInput
               placeholder = 'Birthday'
+              ref = {(el) => {this.birthday = el; }}
               containerStyle = {styles.formInput}
+              onChangeText = {(birthday) => this.setState({birthday})}
+              value={this.state.birthday}
             />
             <Button
                buttonStyle = {styles.buttonStyle}
@@ -52,7 +86,31 @@ class SignUpPage extends React.Component {
                color="#FFFFFF"
                backgroundColor="#0b2793"
                accessibilityLabel= "Create Account"
-               onPress={ () => this.props.navigation.navigate('LogIn')}/>
+               onPress={ (event) => {
+                 let formField= {
+                  firstName:this.state.firstName,
+                  lastName:this.state.lastName,
+                  email:this.state.email,
+                  password:this.state.password,
+                  birthday:this.state.birthday
+                 }
+                 fetch(`http://${api}/api/users`,{
+                   method: 'POST',
+                   headers: {
+                     Accept: 'application/json',
+                     'Content-Type': 'application/json'
+                   },
+                   body: JSON.stringify(
+                     formField
+                   ),
+                 })
+                  .then ( ( res ) => {return res.json()})
+                  .then ( ( data ) => {console.log(data)})
+
+                 this.props.navigation.navigate('LogIn')
+                }
+               }
+             />
         </Card>
       </View>
     );

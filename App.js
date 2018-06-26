@@ -10,6 +10,12 @@ import CrisisPage from './Pages/CrisisPage.js';
 import { createStackNavigator } from 'react-navigation';
 import LandingPage from './Pages/LandingPage.js';
 import Modal from './Components/Modal.js';
+import Expo from 'expo';
+const { manifest } = Expo.Constants;
+const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
+  manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
+  `api.example.com`
+  //replace api.example.com with our production host
 
 const RootStack = createStackNavigator(
   // Creating the navigation for our application
@@ -40,6 +46,7 @@ const RootStack = createStackNavigator(
 export default class App extends React.Component{
 //Rendering the rootstack which is setting our navigation
   render(){
+    console.log(api);
     return <RootStack />;
   }
 }
