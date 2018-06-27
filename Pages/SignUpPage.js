@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, View, ReactNativeComponentTree } from 'react-native';
-import { withNavigation } from 'react-navigation';
 import {
   Text,
   Button,
@@ -104,8 +103,8 @@ class SignUpPage extends React.Component {
                      formField
                    ),
                  })
-                  .then ( ( res ) => {return res.json()})
-                  .then ( ( data ) => {console.log(data)})
+                  .then ( ( res ) => {console.log(res.json())})
+                  // .then ( ( data ) => {console.log(data)})
 
                  this.props.navigation.navigate('LogIn')
                 }
@@ -120,7 +119,7 @@ class SignUpPage extends React.Component {
 //Wrapping the entire component in
 //the withNavigation function allows us to
 //access this.props.navigation.navigate
-export default withNavigation(SignUpPage)
+export default (SignUpPage)
 
 const styles = StyleSheet.create({
   formInput: {

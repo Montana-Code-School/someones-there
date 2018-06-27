@@ -35,7 +35,7 @@ To run the build, use command `npm run build`.
 - react-native-elements - used for styled components:
 https://react-native-training.github.io/react-native-elements/  <br><br>
 - react-navigation - routes between pages, RootStack, withNavigation: https://reactnavigation.org/<br><br>
-- react-native-modal-dropdown - dropdown menu in DashboardPage, PreferencesPage, and CrisisPage: https://www.npmjs.com/package/react-native-modal-dropdown
+- react-native-modal-dropdown - dropdown menu in DashboardPage, PreferencesPage, and HelpPage: https://www.npmjs.com/package/react-native-modal-dropdown
 
 ### Pictures
  Any pictures can be found in the placement-pictures folder.

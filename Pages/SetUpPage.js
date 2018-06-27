@@ -1,7 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, Picker } from 'react-native';
 import {Text,vButton, Avatar, Card, FormLabel, FormInput, FormValidationMessage, CheckBox } from 'react-native-elements';
-import { withNavigation } from 'react-navigation';
 
 class SetUpPage extends React.Component {
   render() {
@@ -80,7 +79,7 @@ class SetUpPage extends React.Component {
 //Wrapping the entire component in
 //the withNavigation function allows us to
 //access this.props.navigation.navigate
-export default withNavigation(SetUpPage);
+export default (SetUpPage);
 
 const styles = StyleSheet.create({
 buttonStyle: {

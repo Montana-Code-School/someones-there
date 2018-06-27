@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import DashboardPage from '../Pages/DashboardPage.js';
-import PreferencesPage from '../Pages/PreferencesPage'
-import CrisisPage from '../Pages/CrisisPage';
+import PreferencesPage from '../Pages/PreferencesPage';
+import LandingPage from '../Pages/LandingPage';
+import HelpPage from '../Pages/HelpPage';
 import {Button} from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 
@@ -53,27 +54,27 @@ class ModalExample extends Component {
                     this.toggleModal(!this.state.modalVisible)
                   }}/>
 
-                  <Button title='Crisis'
+                  <Button title='Help'
                   medium
                   rounded
                   style={{padding: 30}}
-                  title="Login"
+                  title="Help"
                   color="#FFFFFF"
                   backgroundColor="#0b2793"
                    onPress={ () => {
-                    this.props.navigation.navigate("Crisis")
+                    this.props.navigation.navigate("Help")
                     this.toggleModal(!this.state.modalVisible)
                   }}/>
 
-                  <Button
+                  <Button title='Logout'
                   medium
                   rounded
                   style={{padding: 20}}
-                  title="Login"
+                  title="Logout"
                   color="#FFFFFF"
                   backgroundColor="#0b2793"
                   title='Logout' onPress={ () => {
-                    this.props.navigation.navigate("Logout")
+                    this.props.navigation.navigate("Landing")
                     this.toggleModal(!this.state.modalVisible)
                   }}/>
 
@@ -98,7 +99,7 @@ const styles = StyleSheet.create ({
    container: {
       alignItems: 'center',
       backgroundColor: '#ede3f2',
-      padding: 50
+      padding: 10
    },
    modal: {
       flex: 1,

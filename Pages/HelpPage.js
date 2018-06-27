@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
-import { withNavigation } from 'react-navigation';
+import ModalExample from '../Components/Modal.js';
 
-class CrisisPage extends React.Component {
+
+class HelpPage extends React.Component {
 
   render() {
     return (
       <View style={styles.container}>
+        <ModalExample />
         <Text style={styles.title}>Someones There</Text>
         <Text>Changes you make will automatically reload.</Text>
         <Text>Shake your phone to open the developer menu.</Text>
@@ -16,10 +18,7 @@ class CrisisPage extends React.Component {
   }
 }
 
-//Wrapping the entire component in
-//the withNavigation function allows us to
-//access this.props.navigation.navigate
-export default withNavigation(CrisisPage);
+export default (HelpPage);
 const styles= StyleSheet.create({
   container : {
     alignItems: 'center',

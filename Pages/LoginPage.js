@@ -1,6 +1,5 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, AppRegistry } from 'react-native';
-import { withNavigation } from 'react-navigation';
 import { Text, Button, Avatar, Card, FormInput } from 'react-native-elements';
 
 
@@ -52,4 +51,4 @@ const styles = StyleSheet.create({
 //Wrapping the entire component in
 //the withNavigation function allows us to
 //access this.props.navigation.navigate
-export default withNavigation(LoginPage);
+export default (LoginPage);
