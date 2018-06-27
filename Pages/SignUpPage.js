@@ -113,7 +113,7 @@ class SignUpPage extends React.Component {
                   .then ( ( data ) => ( data ) )
 
                   //This will eventually be SetUpPage
-                 this.props.navigation.navigate('Login')
+                 this.props.navigation.navigate('SetUp')
                 }
                }
              />
