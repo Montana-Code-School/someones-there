@@ -10,7 +10,7 @@ class SetUpPage extends React.Component {
           <View>
             <Text h2 style = {styles.textStyle}>Tell me more about you!</Text>
             <Text style = {styles.textStyle}>I want to hear all about you!</Text>
-            <Text style = {styles.textStyle}>Plus, this information will help us customize your experience.</Text>
+            <Text style = {styles.textStyle}>Plus, this information will help me customize your experience.</Text>
           </View>
           <View>
             <Text h4 style = {styles.textStyle}>What kind of pictures do you like?</Text>
