@@ -1,7 +1,6 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, Image } from 'react-native';
 import {Text, Button, Avatar } from 'react-native-elements';
-import { withNavigation } from 'react-navigation';
 import  LogoTitle  from './LogoTitle.js';
 
 class LandingPage extends React.Component {
@@ -60,7 +59,7 @@ class LandingPage extends React.Component {
 //the withNavigation function allows us to
 //access this.props.navigation.navigate
 
-export default withNavigation(LandingPage);
+export default (LandingPage);
 
 const styles = StyleSheet.create({
   container: {

@@ -1,8 +1,14 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, AppRegistry } from 'react-native';
-import { withNavigation } from 'react-navigation';
 import { Text, Button, Avatar, Card, FormInput } from 'react-native-elements';
+import NonAuthModal from '../Components/NonAuthModal';
+import {formField} from '../Pages/SignUpPage';
+import Expo from 'expo';
 
+const { manifest } = Expo.Constants;
+const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
+  manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
+  `api.example.com`
 
 class LoginPage extends React.Component {
 
@@ -13,6 +19,7 @@ class LoginPage extends React.Component {
   render() {
     return (
       <ScrollView style={styles.container}>
+        <NonAuthModal />
         <Card title="Login">
           <View>
               <FormInput
@@ -32,7 +39,25 @@ class LoginPage extends React.Component {
                  backgroundColor="#0b2793"
                  icon={{name: 'user-circle', type: 'font-awesome'}}
                  accessibilityLabel="Login button"
-                 onPress={ () => this.props.navigation.navigate('Dashboard')}
+                 onPress={ (event) =>{
+                  fetch(`http://${api}/api/users`,{
+                     method: 'GET',
+                     headers: {
+                       'Accept': 'application/json',
+                       'Content-Type': 'application/json'
+                     },
+                     body: JSON.stringify(
+                       formField
+                     ),
+                   })
+                    .then ( ( res ) => {return res.json()})
+                    .then ( ( data ) => ( data ) )
+
+
+                   this.props.navigation.navigate('Dashboard')}
+                 
+                 }
+
               />
           </View>
         </Card>
@@ -52,4 +77,4 @@ const styles = StyleSheet.create({
 //Wrapping the entire component in
 //the withNavigation function allows us to
 //access this.props.navigation.navigate
-export default withNavigation(LoginPage);
+export default (LoginPage);

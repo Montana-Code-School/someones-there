@@ -1,6 +1,5 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, Image, TouchableOpacity } from 'react-native';
-import { withNavigation } from 'react-navigation';
 import {Text, Button, Avatar } from 'react-native-elements';
 import ModalExample from '../Components/Modal';
 
@@ -85,4 +84,4 @@ taglineStyle: {
 //Wrapping the entire component in
 //the withNavigation function allows us to
 //access this.props.navigation.navigate
-export default withNavigation(DashboardPage);
+export default (DashboardPage);

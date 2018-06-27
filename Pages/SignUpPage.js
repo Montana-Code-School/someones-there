@@ -1,6 +1,6 @@
 import React from 'react';
+import NonAuthModal from '../Components/NonAuthModal';
 import { StyleSheet, View, ReactNativeComponentTree } from 'react-native';
-import { withNavigation } from 'react-navigation';
 import {
   Text,
   Button,
@@ -29,6 +29,9 @@ class SignUpPage extends React.Component {
         password: '',
         birthday: ''
     };
+  }
+  componentDidMount(){
+    console.log(manifest.debuggerHost);
   }
 
   static navigationOptions = {
@@ -94,10 +97,12 @@ class SignUpPage extends React.Component {
                   password:this.state.password,
                   birthday:this.state.birthday
                  }
+                 console.log("I am here. you are there");
+                 console.log(api);
                  fetch(`http://${api}/api/users`,{
                    method: 'POST',
                    headers: {
-                     Accept: 'application/json',
+                     'Accept': 'application/json',
                      'Content-Type': 'application/json'
                    },
                    body: JSON.stringify(
@@ -105,9 +110,10 @@ class SignUpPage extends React.Component {
                    ),
                  })
                   .then ( ( res ) => {return res.json()})
-                  .then ( ( data ) => {console.log(data)})
+                  .then ( ( data ) => ( data ) )
 
-                 this.props.navigation.navigate('LogIn')
+                  //This will eventually be SetUpPage
+                 this.props.navigation.navigate('Login')
                 }
                }
              />
@@ -120,7 +126,7 @@ class SignUpPage extends React.Component {
 //Wrapping the entire component in
 //the withNavigation function allows us to
 //access this.props.navigation.navigate
-export default withNavigation(SignUpPage)
+export default (SignUpPage)
 
 const styles = StyleSheet.create({
   formInput: {
