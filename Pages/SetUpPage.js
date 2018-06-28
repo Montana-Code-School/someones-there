@@ -3,6 +3,21 @@ import { StyleSheet, View, ScrollView, Picker } from 'react-native';
 import {Text, Button, Avatar, Card, FormLabel, FormInput, FormValidationMessage, CheckBox } from 'react-native-elements';
 
 class SetUpPage extends React.Component {
+  constructor (props) {
+    super(props);
+      this.state = {
+        holidays: false,
+        pics: false,
+        exercise: false,
+        eating: false,
+        wakingUp: false,
+        personalHygeine: false,
+        sleep: false,
+        none: false
+      };
+
+
+}
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -27,34 +42,41 @@ class SetUpPage extends React.Component {
             <Text h4 style = {styles.textStyle}>Would you like me send you custom greeting on holidays?</Text>
             <CheckBox
               title='Yes'
-              // checked={this.state.checked}
+              onPress={() => this.setState({holidays: !this.state.holidays})}
+              checked={this.state.holidays}
             />
           </View>
           <View>
             <Text h4 style = {styles.textStyle}>Which areas of your life would you like to improve on?</Text>
             <CheckBox
               title='Exercise'
-              // checked={this.state.checked}
+              onPress={() => this.setState({exercise: !this.state.exercise})}
+              checked={this.state.exercise}
             />
             <CheckBox
               title='Eating'
-              // checked={this.state.checked}
+              onPress={() => this.setState({eating: !this.state.eating})}
+              checked={this.state.eating}
             />
             <CheckBox
               title='Waking Up'
-              // checked={this.state.checked}
+              onPress={() => this.setState({wakingUp: !this.state.wakingUp})}
+              checked={this.state.wakingUp}
             />
             <CheckBox
               title='Personal Hygeine'
-              // checked={this.state.checked}
+              onPress={() => this.setState({personalHygeine: !this.state.personalHygeine})}
+              checked={this.state.personalHygeine}
             />
             <CheckBox
               title='Sleep'
-              // checked={this.state.checked}
+              onPress={() => this.setState({sleep: !this.state.sleep})}
+              checked={this.state.sleep}
             />
             <CheckBox
               title='None'
-              // checked={this.state.checked}
+              onPress={() => this.setState({none: !this.state.none})}
+              checked={this.state.none}
             />
           </View>
           <View>
@@ -75,6 +97,7 @@ class SetUpPage extends React.Component {
     );
   }
 }
+
 
 //Wrapping the entire component in
 //the withNavigation function allows us to
