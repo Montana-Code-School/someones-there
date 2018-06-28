@@ -27,7 +27,11 @@ class SignUpPage extends React.Component {
         lastName: '',
         email: '',
         password: '',
-        birthday: ''
+        birthday: '',
+        pageErrors : {
+          error : false,
+          message: ''
+        }
     };
   }
   componentDidMount(){
@@ -79,6 +83,7 @@ class SignUpPage extends React.Component {
               onChangeText = {(birthday) => this.setState({birthday})}
               value={this.state.birthday}
             />
+            <Text>{this.state.pageErrors.message}</Text>
             <Button
                buttonStyle = {styles.buttonStyle}
                large
@@ -97,22 +102,35 @@ class SignUpPage extends React.Component {
                   password:this.state.password,
                   birthday:this.state.birthday
                  }
-                 console.log("I am here. you are there");
-                 console.log(api);
-                 fetch(`http://${api}/api/users`,{
-                   method: 'POST',
-                   headers: {
-                     'Accept': 'application/json',
-                     'Content-Type': 'application/json'
-                   },
-                   body: JSON.stringify(
-                     formField
-                   ),
-                 })
-                  .then ( ( res ) => {return res.json()})
-                  .then ( ( data ) => ( data ) )
-
-                  //This will eventually be SetUpPage
+                 let isSet = true;
+                 for (var prop in formField) {
+                   if (formField.hasOwnProperty(prop) && formField[prop] === "") {
+                     isSet = false;
+                   }
+                 }
+                 if (!isSet) {
+                   let errorObj = {
+                     error : true,
+                     message: 'all fields must be set'
+                   }
+                   this.setState({
+                     pageErrors : errorObj
+                   })
+                   return false;
+                 } else {
+                   fetch(`http://${api}/api/users`,{
+                     method: 'POST',
+                     headers: {
+                       'Accept': 'application/json',
+                       'Content-Type': 'application/json'
+                     },
+                     body: JSON.stringify(
+                       formField
+                     ),
+                   })
+                    .then ( ( res ) => {return res.json()})
+                    .then ( ( data ) => ( data ) )
+                 }
                  this.props.navigation.navigate('SetUp')
                 }
                }

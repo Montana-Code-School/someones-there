@@ -1,6 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, Picker } from 'react-native';
 import {Text, Button, Avatar, Card, FormLabel, FormInput, FormValidationMessage, CheckBox } from 'react-native-elements';
+const { manifest } = Expo.Constants;
+const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
+  manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
+  `api.example.com`
 
 class SetUpPage extends React.Component {
   constructor (props) {
@@ -15,9 +19,10 @@ class SetUpPage extends React.Component {
         sleep: false,
         none: false
       };
+  }
+  componentDidMount(){
+  }
 
-
-}
   render() {
     return (
       <ScrollView style={styles.container}>
@@ -89,7 +94,31 @@ class SetUpPage extends React.Component {
                color="#FFFFFF"
                backgroundColor="#0b2793"
                accessibilityLabel="Submit"
-               onPress={ () => this.props.navigation.navigate('Dashboard')}
+               onPress={(event) =>{
+                 let userId = '5b33e31bf252055b16a37304'
+                 fetch(`http://${api}/api/preferences/${userId}`,{
+                  method: 'POST',
+                  headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    holidays: this.state.holidays,
+                    pics: this.state.pics,
+                    exercise: this.state.exercise,
+                    eating: this.state.eating,
+                    wakingUp: this.state.wakingUp,
+                    personalHygeine: this.state.personalHygeine,
+                    sleep: this.state.sleep,
+                    none: this.state.none
+                    }
+                  ),
+                })
+                .then ( ( res ) => {return res.json()})
+                .then ( ( data ) => ( data ) )
+
+                  this.props.navigation.navigate('Dashboard')
+              }}
             />
           </View>
         </Card>
@@ -97,6 +126,7 @@ class SetUpPage extends React.Component {
     );
   }
 }
+
 
 
 //Wrapping the entire component in
