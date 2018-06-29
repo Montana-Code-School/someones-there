@@ -44,6 +44,7 @@ class SignUpPage extends React.Component {
   render() {
     return (
       <View>
+      <NonAuthModal />
         <Card
           title='Sign Up'
           titleStyle = {styles.cardTitle}

@@ -5,11 +5,27 @@ import ModalExample from '../Components/Modal';
 
   class DashboardPage extends React.Component {
 
+    constructor(props){
+      super(props);
+      this.state = {
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+          birthday: '',
+          pageErrors : {
+            error : false,
+            message: ''
+          }
+      };
+    }
     static navigationOptions = {
       title: "Dashboard",
     };
 
     render() {
+      const {navigation} = this.props;
+      console.log(navigation.state.params.user.users[0]);
       return (
         <ScrollView>
           <ModalExample />
@@ -22,7 +38,7 @@ import ModalExample from '../Components/Modal';
             onPress={() => console.log("Works!")}
             activeOpacity={0.7}
           />
-          <Text h2>Welcome, User!</Text>
+          <Text h2>Welcome, {name}</Text>
         </View>
         <View style={styles.textView}>
            <Text h4>How is your day going today?</Text>

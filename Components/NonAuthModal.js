@@ -49,7 +49,7 @@ class NonAuthModal extends Component {
                   color="#FFFFFF"
                   backgroundColor="#0b2793"
                   title='Login' onPress={ () => {
-                    this.props.navigation.navigate("Login")
+                    this.props.navigation.navigate("LogIn")
                     this.toggleModal(!this.state.modalVisible)
                   }}/>
 
