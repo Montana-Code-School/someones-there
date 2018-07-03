@@ -4,7 +4,7 @@ import {Text, Button, Avatar, Card, FormLabel, FormInput, FormValidationMessage,
 const { manifest } = Expo.Constants;
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
   manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
-  `api.example.com`
+  `http://pure-ridge-12887.herokuapp.com/api/users`
 
 class SetUpPage extends React.Component {
   constructor (props) {
@@ -15,7 +15,7 @@ class SetUpPage extends React.Component {
         exercise: false,
         eating: false,
         wakingUp: false,
-        personalHygeine: false,
+        personalHygiene: false,
         sleep: false,
         none: false
       };
@@ -24,6 +24,7 @@ class SetUpPage extends React.Component {
   }
 
   render() {
+    const {navigation} = this.props;
     return (
       <ScrollView style={styles.container}>
         <Card>
@@ -69,9 +70,9 @@ class SetUpPage extends React.Component {
               checked={this.state.wakingUp}
             />
             <CheckBox
-              title='Personal Hygeine'
-              onPress={() => this.setState({personalHygeine: !this.state.personalHygeine})}
-              checked={this.state.personalHygeine}
+              title='Personal Hygiene'
+              onPress={() => this.setState({personalHygiene: !this.state.personalHygiene})}
+              checked={this.state.personalHygiene}
             />
             <CheckBox
               title='Sleep'
@@ -95,8 +96,9 @@ class SetUpPage extends React.Component {
                backgroundColor="#0b2793"
                accessibilityLabel="Submit"
                onPress={(event) =>{
-                 let userId = '5b33e31bf252055b16a37304'
-                 fetch(`http://${api}/api/preferences/${userId}`,{
+                 let prefId = navigation.state.params.user.userPreferences._id
+                 console.log('prefId', prefId);
+                 fetch(`http://${api}/api/preferences/${prefId}`,{
                   method: 'POST',
                   headers: {
                     'Accept': 'application/json',
@@ -108,16 +110,17 @@ class SetUpPage extends React.Component {
                     exercise: this.state.exercise,
                     eating: this.state.eating,
                     wakingUp: this.state.wakingUp,
-                    personalHygeine: this.state.personalHygeine,
+                    personalHygiene: this.state.personalHygiene,
                     sleep: this.state.sleep,
                     none: this.state.none
                     }
                   ),
                 })
                 .then ( ( res ) => {return res.json()})
-                .then ( ( data ) => ( data ) )
-
-                  this.props.navigation.navigate('Dashboard')
+                .then ( ( data ) => {
+                  console.log(data)
+                  this.props.navigation.navigate('Dashboard', {user:navigation.state.params.user})
+                })
               }}
             />
           </View>

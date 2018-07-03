@@ -14,7 +14,7 @@ import Expo from 'expo';
 const { manifest } = Expo.Constants;
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
   manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
-  `api.example.com`
+  `http://pure-ridge-12887.herokuapp.com/api/users`
   //replace api.example.com with our production host
 
 const RootStack = createStackNavigator(

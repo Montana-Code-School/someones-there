@@ -10,7 +10,7 @@ import Expo from 'expo';
 const { manifest } = Expo.Constants;
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
   manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
-  `api.example.com`
+  `http://pure-ridge-12887.herokuapp.com/api/users`
 
 class LoginPage extends React.Component {
 
@@ -57,7 +57,7 @@ class LoginPage extends React.Component {
                   .then ( ( data ) => (
                       this.props.navigation.navigate('Dashboard',
                         {user: data}
-                      )  
+                      )
                   ))
                }}
 

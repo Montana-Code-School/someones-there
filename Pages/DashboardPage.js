@@ -25,7 +25,6 @@ import ModalExample from '../Components/Modal';
 
     render() {
       const {navigation} = this.props;
-      console.log(navigation.state.params.user.users[0]);
       return (
         <ScrollView>
           <ModalExample />
@@ -38,7 +37,7 @@ import ModalExample from '../Components/Modal';
             onPress={() => console.log("Works!")}
             activeOpacity={0.7}
           />
-          <Text h2>Welcome, {name}</Text>
+          <Text h2>Welcome, {navigation.state.params.user.firstName}</Text>
         </View>
         <View style={styles.textView}>
            <Text h4>How is your day going today?</Text>
