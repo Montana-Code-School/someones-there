@@ -19,6 +19,9 @@ import ModalExample from '../Components/Modal.js';
          none: false
        };
     }
+    componentDidMount() {
+      console.log(this.props.navigation.state.params);
+    }
 
   render() {
     return (
@@ -91,7 +94,33 @@ import ModalExample from '../Components/Modal.js';
                color="#FFFFFF"
                backgroundColor="#0b2793"
                accessibilityLabel="Update"
-               onPress={ () => this.props.navigation.navigate('Dashboard')}
+               onPress={(event) =>{
+                 let prefId = navigation.state.params.user.userPreferences._id
+                 console.log('prefId', prefId);
+                 fetch(`http://${api}/api/preferences/${prefId}`,{
+                  method: 'POST',
+                  headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                  },
+                  body: JSON.stringify({
+                    holidays: this.state.holidays,
+                    pics: this.state.pics,
+                    exercise: this.state.exercise,
+                    eating: this.state.eating,
+                    wakingUp: this.state.wakingUp,
+                    personalHygiene: this.state.personalHygiene,
+                    sleep: this.state.sleep,
+                    none: this.state.none
+                    }
+                  ),
+                })
+                .then ( ( res ) => {return res.json()})
+                .then ( ( data ) => {
+                  console.log(data)
+                  this.props.navigation.navigate('Dashboard', {user:navigation.state.params.user})
+                })
+              }}
             />
           </View>
         </Card>
