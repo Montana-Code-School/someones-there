@@ -5,10 +5,12 @@ import NonAuthModal from '../Components/NonAuthModal';
 import {formField} from '../Pages/SignUpPage';
 import Expo from 'expo';
 
+
+
 const { manifest } = Expo.Constants;
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
   manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
-  `api.example.com`
+  `http://pure-ridge-12887.herokuapp.com/api/users`
 
 class LoginPage extends React.Component {
 
@@ -18,6 +20,7 @@ class LoginPage extends React.Component {
 
   render() {
     return (
+
       <ScrollView style={styles.container}>
         <NonAuthModal />
         <Card title="Login">
@@ -40,7 +43,7 @@ class LoginPage extends React.Component {
                  icon={{name: 'user-circle', type: 'font-awesome'}}
                  accessibilityLabel="Login button"
                  onPress={ (event) =>{
-                  fetch(`http://${api}/api/users`,{
+                  fetch(`http://${api}/api/users`, {
                      method: 'GET',
                      headers: {
                        'Accept': 'application/json',
@@ -49,14 +52,14 @@ class LoginPage extends React.Component {
                      body: JSON.stringify(
                        formField
                      ),
-                   })
-                    .then ( ( res ) => {return res.json()})
-                    .then ( ( data ) => ( data ) )
-
-
-                   this.props.navigation.navigate('Dashboard')}
-                 
-                 }
+                  })
+                  .then ( ( res ) => {return res.json()})
+                  .then ( ( data ) => (
+                      this.props.navigation.navigate('Dashboard',
+                        {user: data}
+                      )
+                  ))
+               }}
 
               />
           </View>

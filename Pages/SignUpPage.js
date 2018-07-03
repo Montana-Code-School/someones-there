@@ -14,7 +14,7 @@ import Expo from 'expo';
 const { manifest } = Expo.Constants;
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
   manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
-  `api.example.com`
+  `http://pure-ridge-12887.herokuapp.com/api/users`
   //replace api.example.com with our production host
 
 
@@ -44,6 +44,7 @@ class SignUpPage extends React.Component {
   render() {
     return (
       <View>
+      <NonAuthModal />
         <Card
           title='Sign Up'
           titleStyle = {styles.cardTitle}
@@ -129,9 +130,12 @@ class SignUpPage extends React.Component {
                      ),
                    })
                     .then ( ( res ) => {return res.json()})
-                    .then ( ( data ) => ( data ) )
+                    .then ( ( data ) => {
+                      console.log( data )
+                      this.props.navigation.navigate('SetUp', {user: data.user})
+
+                    } )
                  }
-                 this.props.navigation.navigate('SetUp')
                 }
                }
              />

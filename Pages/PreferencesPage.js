@@ -14,7 +14,7 @@ import ModalExample from '../Components/Modal.js';
          exercise: false,
          eating: false,
          wakingUp: false,
-         personalHygeine: false,
+         personalHygiene: false,
          sleep: false,
          none: false
        };
@@ -66,9 +66,9 @@ import ModalExample from '../Components/Modal.js';
               checked={this.state.wakingUp}
             />
             <CheckBox
-              title='Personal Hygeine'
-              onPress={() => this.setState({personalHygeine: !this.state.personalHygeine})}
-              checked={this.state.personalHygeine}
+              title='Personal Hygiene'
+              onPress={() => this.setState({personalHygiene: !this.state.personalHygiene})}
+              checked={this.state.personalHygiene}
             />
             <CheckBox
               title='Sleep'
