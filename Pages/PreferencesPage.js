@@ -24,6 +24,7 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
          none: false
        };
     }
+
     componentDidMount(){
       const {navigation} = this.props;
       let prefId = navigation.state.params.user.userPreferences;
@@ -47,6 +48,7 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
            none: data.none })
         console.log(data)
       })
+
     }
 
   render() {
@@ -122,7 +124,9 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
                backgroundColor="#0b2793"
                accessibilityLabel="Update"
                onPress={(event) =>{
+
                  let prefId = navigation.state.params.user.userPreferences
+
                  console.log('prefId', prefId);
                  fetch(`http://${api}/api/preferences/${prefId}`,{
                   method: 'POST',
@@ -145,7 +149,9 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
                 .then ( ( res ) => {return res.json()})
                 .then ( ( data ) => {
                   console.log(data)
+
                   this.props.navigation.navigate('Dashboard')
+
                 })
               }}
             />
