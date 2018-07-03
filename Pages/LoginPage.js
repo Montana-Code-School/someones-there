@@ -5,8 +5,6 @@ import NonAuthModal from '../Components/NonAuthModal';
 import {formField} from '../Pages/SignUpPage';
 import Expo from 'expo';
 
-
-
 const { manifest } = Expo.Constants;
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
   manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
@@ -54,11 +52,12 @@ class LoginPage extends React.Component {
                      ),
                   })
                   .then ( ( res ) => {return res.json()})
-                  .then ( ( data ) => (
+                  .then ( ( data ) => {
+                      console.log(data)
                       this.props.navigation.navigate('Dashboard',
-                        {user: data}
+                        {user: data.users[0]}
                       )
-                  ))
+                  })
                }}
 
               />

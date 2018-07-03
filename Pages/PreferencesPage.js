@@ -3,6 +3,11 @@ import { StyleSheet, View, ScrollView, Picker } from 'react-native';
 import {Text, Button, Avatar, Card, FormLabel, FormInput, FormValidationMessage, CheckBox } from 'react-native-elements';
 import ModalExample from '../Components/Modal.js';
 
+const { manifest } = Expo.Constants;
+const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
+  manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
+  `http://pure-ridge-12887.herokuapp.com/api/users`
+
 
 
  class PreferencesPage extends React.Component {
@@ -19,11 +24,35 @@ import ModalExample from '../Components/Modal.js';
          none: false
        };
     }
-    componentDidMount() {
-      console.log(this.props.navigation.state.params);
+
+    componentDidMount(){
+      const {navigation} = this.props;
+      let prefId = navigation.state.params.user.userPreferences;
+      fetch(`http://${api}/api/preferences/${prefId}`,{
+       method: 'GET',
+       headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json'
+       }
+      })
+      .then ( ( res ) => {return res.json()})
+      .then ( ( data ) => {
+        this.setState({
+           holidays: data.holidays,
+           pics: data.pics,
+           exercise: data.exercise,
+           eating: data.eating,
+           wakingUp: data.wakingUp,
+           personalHygiene: data.personalHygiene,
+           sleep: data.sleep,
+           none: data.none })
+        console.log(data)
+      })
+
     }
 
   render() {
+    const {navigation} = this.props;
     return (
       <ScrollView style={styles.container}>
         <Card>
@@ -95,7 +124,9 @@ import ModalExample from '../Components/Modal.js';
                backgroundColor="#0b2793"
                accessibilityLabel="Update"
                onPress={(event) =>{
-                 let prefId = navigation.state.params.user.userPreferences._id
+
+                 let prefId = navigation.state.params.user.userPreferences
+
                  console.log('prefId', prefId);
                  fetch(`http://${api}/api/preferences/${prefId}`,{
                   method: 'POST',
@@ -118,7 +149,9 @@ import ModalExample from '../Components/Modal.js';
                 .then ( ( res ) => {return res.json()})
                 .then ( ( data ) => {
                   console.log(data)
-                  this.props.navigation.navigate('Dashboard', {user:navigation.state.params.user})
+
+                  this.props.navigation.navigate('Dashboard')
+
                 })
               }}
             />

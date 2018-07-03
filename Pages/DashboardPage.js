@@ -27,7 +27,7 @@ import ModalExample from '../Components/Modal';
       const {navigation} = this.props;
       return (
         <ScrollView>
-          <ModalExample />
+          <ModalExample user = {navigation.state.params.user}/>
 
         <View style={styles.titleContainer}>
           <Avatar
