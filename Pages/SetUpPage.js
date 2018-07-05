@@ -11,7 +11,6 @@ class SetUpPage extends React.Component {
     super(props);
       this.state = {
         holidays: false,
-        pics: false,
         exercise: false,
         eating: false,
         wakingUp: false,
@@ -94,7 +93,6 @@ class SetUpPage extends React.Component {
                   },
                   body: JSON.stringify({
                     holidays: this.state.holidays,
-                    pics: this.state.pics,
                     exercise: this.state.exercise,
                     eating: this.state.eating,
                     wakingUp: this.state.wakingUp,

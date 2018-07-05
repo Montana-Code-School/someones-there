@@ -30,13 +30,6 @@ import ModalExample from '../Components/Modal';
           <ModalExample user = {navigation.state.params.user}/>
 
         <View style={styles.titleContainer}>
-          <Avatar
-            size="medium"
-            rounded
-            source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg"}}
-            onPress={() => console.log("Works!")}
-            activeOpacity={0.7}
-          />
           <Text h2>Welcome, {navigation.state.params.user.firstName}</Text>
         </View>
         <View style={styles.textView}>
