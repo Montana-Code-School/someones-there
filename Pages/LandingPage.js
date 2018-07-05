@@ -12,17 +12,50 @@ import {Text, Button, Avatar } from 'react-native-elements';
 import  LogoTitle  from './LogoTitle.js';
 import { Permissions, Notifications } from 'expo';
 import Notification from '../Components/Notification.js'
-import registerForPushNotifications from '../Helper/Register.js'
-
-
 
 class LandingPage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      token: null,
+      notification: null,
+      title: "hello",
+      body: "say something"
+    };
+    this.initialRegister = this.initialRegister.bind(this)
+  }
 
   static navigationOptions = {
     headerTitle: <LogoTitle />,
   };
+
+  async initialRegister() {
+     const { status } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+     if (status !== 'granted') {
+       const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+       if (status !== 'granted') {
+         return;
+       }
+     }
+
+     const token = await Notifications.getExpoPushTokenAsync();
+     this.subscription = Notifications.addListener(this.handleNotification);
+     console.log('token', token);
+
+    this.setState({
+      token
+    });
+  }
+
+  handleNotification = notification => {
+    this.setState({
+      notification,
+    });
+  };
+
   componentDidMount() {
-    registerForPushNotifications()
+    this.initialRegister()
+    console.log(this.state.token, "this.state.token");
   }
 
   render() {
@@ -64,7 +97,12 @@ class LandingPage extends React.Component {
             </View>
           </View>
           <View>
-          <Notification />
+          <Notification
+            token = {this.state.token}
+            notification = {this.state.notification}
+            title = {this.state.title}
+            body =  {this.state.body}
+          />
           </View>
        </ScrollView>
     );

@@ -138,3 +138,9 @@ export default class App extends React.Component{
 ) : null}
 </KeyboardAvoidingView>
 </View>
+=----------------------------------------------------------------------
+// <TouchableOpacity
+//   onPress={() => this.props.registerForPushNotifications()}
+//   style={styles1.touchable}>
+//   <Text>Register me for notifications!</Text>
+// </TouchableOpacity>
