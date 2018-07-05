@@ -9,13 +9,11 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
   `http://pure-ridge-12887.herokuapp.com/api/users`
 
 
-
  class PreferencesPage extends React.Component {
    constructor (props) {
      super(props);
        this.state = {
          holidays: false,
-         pics: false,
          exercise: false,
          eating: false,
          wakingUp: false,
@@ -39,7 +37,6 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
       .then ( ( data ) => {
         this.setState({
            holidays: data.holidays,
-           pics: data.pics,
            exercise: data.exercise,
            eating: data.eating,
            wakingUp: data.wakingUp,
@@ -60,17 +57,6 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
             <Text h2 style = {styles.textStyle}>Your Preferences!</Text>
             <Text style = {styles.textStyle}>Are you looking to change something?</Text>
             <Text style = {styles.textStyle}>Plus, this information will help me customize your experience.</Text>
-          </View>
-          <View>
-            <Text h4 style = {styles.textStyle}>What kind of pictures do you like?</Text>
-            <FormInput
-              placeholder = 'ex. Dogs'
-              containerStyle = {styles.formInput}
-            />
-            <FormInput
-              placeholder = 'ex. Flowers'
-              containerStyle = {styles.formInput}
-            />
           </View>
           <View>
             <Text h4 style = {styles.textStyle}>Would you like me send you custom greeting on holidays?</Text>
@@ -136,7 +122,6 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
                   },
                   body: JSON.stringify({
                     holidays: this.state.holidays,
-                    pics: this.state.pics,
                     exercise: this.state.exercise,
                     eating: this.state.eating,
                     wakingUp: this.state.wakingUp,
