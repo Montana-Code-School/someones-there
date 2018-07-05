@@ -22,10 +22,14 @@
   "dependencies": {
     "expo": "^27.0.1",
     "react": "16.3.1",
+    "react-devtools": "^3.2.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-27.0.0.tar.gz",
     "react-native-elements": "^0.19.1",
+    "react-native-exception-handler": "^2.8.9",
     "react-native-hyperlink": "0.0.14",
     "react-native-modal-dropdown": "^0.6.2",
+    "react-native-modal-picker": "0.0.16",
+    "react-native-modal-picker-2": "0.0.16",
     "react-native-vector-icons": "^4.6.0",
     "react-navigation": "^2.4.1"
   }
