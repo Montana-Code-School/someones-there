@@ -62,16 +62,11 @@ class LandingPage extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <View style={styles.titleContainer}>
-          <Image
-            style={styles.logo}
-            source={require('../placement-pictures/coffeeLove.png')}
-            />
-            <Text style={styles.title} h1>Navi</Text>
         </View>
         <View style={styles.imageView}>
            <Image
              style={styles.pic}
-             source={require('../placement-pictures/Logo.jpg')}
+             source={require('../placement-pictures/navi.png')}
             />
             <Text h3></Text>
             <Text style={styles.taglineStyle}>Always have someone there for you.</Text>

@@ -11,7 +11,6 @@ class SetUpPage extends React.Component {
     super(props);
       this.state = {
         holidays: false,
-        pics: false,
         exercise: false,
         eating: false,
         wakingUp: false,
@@ -32,17 +31,6 @@ class SetUpPage extends React.Component {
             <Text h2 style = {styles.textStyle}>Tell me more about you!</Text>
             <Text style = {styles.textStyle}>I want to hear all about you!</Text>
             <Text style = {styles.textStyle}>Plus, this information will help me customize your experience.</Text>
-          </View>
-          <View>
-            <Text h4 style = {styles.textStyle}>What kind of pictures do you like?</Text>
-            <FormInput
-              placeholder = 'ex. Dogs'
-              containerStyle = {styles.formInput}
-            />
-            <FormInput
-              placeholder = 'ex. Flowers'
-              containerStyle = {styles.formInput}
-            />
           </View>
           <View>
             <Text h4 style = {styles.textStyle}>Would you like me send you custom greeting on holidays?</Text>
@@ -105,7 +93,6 @@ class SetUpPage extends React.Component {
                   },
                   body: JSON.stringify({
                     holidays: this.state.holidays,
-                    pics: this.state.pics,
                     exercise: this.state.exercise,
                     eating: this.state.eating,
                     wakingUp: this.state.wakingUp,
