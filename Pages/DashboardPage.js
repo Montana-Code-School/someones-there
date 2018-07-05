@@ -38,7 +38,7 @@ import ModalExample from '../Components/Modal';
         <View style={styles.imageView}>
            <Image
               style={styles.pic}
-              source={require('../placement-pictures/pug.jpg')}
+              source={require('../placement-pictures/navi.png')}
            />
             <Text h3></Text>
             <Text style={styles.taglineStyle}>insert quote here</Text>
