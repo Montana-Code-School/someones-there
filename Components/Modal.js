@@ -6,7 +6,6 @@ import HelpPage from '../Pages/HelpPage';
 import {Button} from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 
-
 import {
    Modal,
    Text,

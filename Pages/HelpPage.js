@@ -2,7 +2,6 @@ import React from 'react';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import ModalExample from '../Components/Modal.js';
 
-
 class HelpPage extends React.Component {
 
   render() {

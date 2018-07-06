@@ -6,6 +6,7 @@ import {formField} from '../Pages/SignUpPage';
 import Expo from 'expo';
 
 const { manifest } = Expo.Constants;
+
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
   'http://' + manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
   `https://pure-ridge-12887.herokuapp.com`
@@ -19,14 +20,13 @@ class LoginPage extends React.Component {
   render() {
     const {navigation} = this.props;
     return (
-
       <ScrollView style={styles.container}>
         <NonAuthModal />
         <Card title="Login">
           <View>
               <FormInput
               placeholder = "Email"
-              value = {navigation.state.params.user.email}
+              // value = {navigation.state.params.user.email}
               style={{height: 40}}
               />
               <FormInput
@@ -43,7 +43,7 @@ class LoginPage extends React.Component {
                  icon={{name: 'user-circle', type: 'font-awesome'}}
                  accessibilityLabel="Login button"
                  onPress={ (event) =>{
-                  fetch(`${api}/api/users/${email}`, {
+                  fetch(`${api}/api/users/`, {
                      method: 'GET',
                      headers: {
                        'Accept': 'application/json',
@@ -61,7 +61,6 @@ class LoginPage extends React.Component {
                       )
                   })
                }}
-
               />
           </View>
         </Card>

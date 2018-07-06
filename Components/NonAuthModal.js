@@ -3,9 +3,7 @@ import LandingPage from '../Pages/LandingPage';
 import SignUpPage from '../Pages/SignUpPage';
 import LoginPage from '../Pages/LoginPage';
 import {Button} from 'react-native-elements';
-import { withNavigation } from 'react-navigation';
-
-
+import { withNavigation } from 'react-navigation'
 import {
    Modal,
    Text,

@@ -4,6 +4,7 @@ import {Text, Button, Avatar, Card, FormLabel, FormInput, FormValidationMessage,
 import ModalExample from '../Components/Modal.js';
 
 const { manifest } = Expo.Constants;
+
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
   'http://' + manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
   `https://pure-ridge-12887.herokuapp.com`
@@ -25,8 +26,9 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
 
     componentDidMount(){
       const {navigation} = this.props;
-      console.log(navigation.state.params.user);
+
       let prefId = navigation.state.params.user.userPreferences._id;
+
       fetch(`${api}/api/preferences/${prefId}`,{
        method: 'GET',
        headers: {
@@ -46,7 +48,6 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
            none: data.none })
         console.log(data)
       })
-
     }
 
   render() {
