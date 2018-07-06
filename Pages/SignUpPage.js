@@ -43,7 +43,7 @@ class SignUpPage extends React.Component {
   render() {
     return (
       <View>
-      <NonAuthModal />
+      <NonAuthModal/>
         <Card
           title='Sign Up'
           titleStyle = {styles.cardTitle}
@@ -108,7 +108,7 @@ class SignUpPage extends React.Component {
                      isSet = false;
                    }
                  }
-                 if (!isSet) {
+                 if (!isSet){
                    let errorObj = {
                      error : true,
                      message: 'All fields must be set'
@@ -117,7 +117,8 @@ class SignUpPage extends React.Component {
                      pageErrors : errorObj
                    })
                    return false;
-                 } else {
+                 }
+                 else{
                    fetch(`${api}/api/users`,{
                      method: 'POST',
                      headers: {
@@ -132,9 +133,8 @@ class SignUpPage extends React.Component {
                     .then ( ( data ) => {
                       console.log( data )
                       this.props.navigation.navigate('SetUp', {user: data.user})
-
-                    } )
-                 }
+                   })
+                  }
                 }
                }
              />

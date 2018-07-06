@@ -19,9 +19,6 @@ class SetUpPage extends React.Component {
         none: false
       };
   }
-  componentDidMount(){
-  }
-
   render() {
     const {navigation} = this.props;
     return (
@@ -115,8 +112,6 @@ class SetUpPage extends React.Component {
     );
   }
 }
-
-
 
 //Wrapping the entire component in
 //the withNavigation function allows us to

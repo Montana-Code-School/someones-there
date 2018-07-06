@@ -19,37 +19,36 @@ import ModalExample from '../Components/Modal';
           }
       };
     }
+
     static navigationOptions = {
       title: "Dashboard",
     };
 
     render() {
       const {navigation} = this.props;
-      return (
-        <ScrollView>
-          <ModalExample user = {navigation.state.params.user}/>
+        return (
+          <ScrollView>
+            <ModalExample user = {navigation.state.params.user}/>
 
-        <View style={styles.titleContainer}>
-          <Text h2>Welcome, {navigation.state.params.user.firstName}</Text>
-        </View>
-        <View style={styles.textView}>
-           <Text h4>How is your day going today?</Text>
-        </View>
-        <View style={styles.imageView}>
-           <Image
-              style={styles.pic}
-              source={require('../placement-pictures/navi.png')}
-           />
-            <Text h3></Text>
-            <Text style={styles.taglineStyle}>insert quote here</Text>
+          <View style={styles.titleContainer}>
+            <Text h2>Welcome, {navigation.state.params.user.firstName}</Text>
           </View>
-      </ScrollView>
+          <View style={styles.textView}>
+             <Text h4>How is your day going today?</Text>
+          </View>
+          <View style={styles.imageView}>
+             <Image
+                style={styles.pic}
+                source={require('../placement-pictures/navi.png')}
+             />
+              <Text h3></Text>
+              <Text style={styles.taglineStyle}>The future belongs to those who believe in the beauty of their dreams.</Text>
+              <Text style={styles.taglineStyle}>- Eleanor Roosevelt</Text>
+            </View>
+        </ScrollView>
     );
   }
 }
-
-
-
 
 const styles = StyleSheet.create({
 container: {

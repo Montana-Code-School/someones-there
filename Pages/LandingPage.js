@@ -31,6 +31,7 @@ class LandingPage extends React.Component {
 
   async initialRegister() {
      const { status } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
+
      if (status !== 'granted') {
        const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
        if (status !== 'granted') {
@@ -39,8 +40,8 @@ class LandingPage extends React.Component {
      }
 
      const token = await Notifications.getExpoPushTokenAsync();
+
      this.subscription = Notifications.addListener(this.handleNotification);
-     console.log('token', token);
 
     this.setState({
       token
@@ -70,41 +71,41 @@ class LandingPage extends React.Component {
             />
             <Text h3></Text>
             <Text style={styles.taglineStyle}>Always have someone there for you.</Text>
-        <View style={styles.buttons}>
-            <Button
-               buttonStyle = {styles.buttonStyle}
-               medium
-               rounded
-               raised
-               icon={{name: 'user-circle', type: 'font-awesome'}}
-               title="Create Account"
-               color="#FFFFFF"
-               backgroundColor="#0b2793"
-               accessibilityLabel= "Create Account"
-               onPress={ () => this.props.navigation.navigate('SignUp')}
-            />
-            <Button
-               buttonStyle = {styles.buttonStyle}
-               rounded
-               icon={{name: 'user-circle', type: 'font-awesome'}}
-               raised
-               title="Log In"
-               color="#FFFFFF"
-               backgroundColor="#0b2793"
-               accessibilityLabel="Log In"
-               onPress={ () => this.props.navigation.navigate('LogIn')}
-            />
-            </View>
+              <View style={styles.buttons}>
+                <Button
+                   buttonStyle = {styles.buttonStyle}
+                   medium
+                   rounded
+                   raised
+                   icon={{name: 'user-circle', type: 'font-awesome'}}
+                   title="Create Account"
+                   color="#FFFFFF"
+                   backgroundColor="#0b2793"
+                   accessibilityLabel= "Create Account"
+                   onPress={ () => this.props.navigation.navigate('SignUp')}
+                />
+                <Button
+                   buttonStyle = {styles.buttonStyle}
+                   rounded
+                   icon={{name: 'user-circle', type: 'font-awesome'}}
+                   raised
+                   title="Log In"
+                   color="#FFFFFF"
+                   backgroundColor="#0b2793"
+                   accessibilityLabel="Log In"
+                   onPress={ () => this.props.navigation.navigate('LogIn')}
+                />
           </View>
-          <View>
+        </View>
+        <View>
           <Notification
             token = {this.state.token}
             notification = {this.state.notification}
             title = {this.state.title}
             body =  {this.state.body}
           />
-          </View>
-       </ScrollView>
+        </View>
+     </ScrollView>
     );
   }
 }
