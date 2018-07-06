@@ -7,8 +7,8 @@ import Expo from 'expo';
 
 const { manifest } = Expo.Constants;
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
-  manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
-  `http://pure-ridge-12887.herokuapp.com/api/users`
+  'http://' + manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
+  `https://pure-ridge-12887.herokuapp.com`
 
 class LoginPage extends React.Component {
 
@@ -17,6 +17,7 @@ class LoginPage extends React.Component {
   };
 
   render() {
+    const {navigation} = this.props;
     return (
 
       <ScrollView style={styles.container}>
@@ -25,11 +26,12 @@ class LoginPage extends React.Component {
           <View>
               <FormInput
               placeholder = "Email"
+              value = {navigation.state.params.user.email}
               style={{height: 40}}
               />
               <FormInput
               placeholder = "Password"
-                style={{height: 40}}
+              style={{height: 40}}
               />
               <Button
                  medium
@@ -41,7 +43,7 @@ class LoginPage extends React.Component {
                  icon={{name: 'user-circle', type: 'font-awesome'}}
                  accessibilityLabel="Login button"
                  onPress={ (event) =>{
-                  fetch(`http://${api}/api/users`, {
+                  fetch(`${api}/api/users/${email}`, {
                      method: 'GET',
                      headers: {
                        'Accept': 'application/json',
@@ -55,7 +57,7 @@ class LoginPage extends React.Component {
                   .then ( ( data ) => {
                       console.log(data)
                       this.props.navigation.navigate('Dashboard',
-                        {user: data.users[0]}
+                        {user: data.users} //BUILD A ROUTE TO FIND USER BY EMAIL
                       )
                   })
                }}

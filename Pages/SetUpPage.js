@@ -3,8 +3,8 @@ import { StyleSheet, View, ScrollView, Picker } from 'react-native';
 import {Text, Button, Avatar, Card, FormLabel, FormInput, FormValidationMessage, CheckBox } from 'react-native-elements';
 const { manifest } = Expo.Constants;
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
-  manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
-  `http://pure-ridge-12887.herokuapp.com/api/users`
+  'http://' + manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
+  `https://pure-ridge-12887.herokuapp.com`
 
 class SetUpPage extends React.Component {
   constructor (props) {
@@ -85,7 +85,8 @@ class SetUpPage extends React.Component {
                accessibilityLabel="Submit"
                onPress={(event) =>{
                  let prefId = navigation.state.params.user.userPreferences._id
-                 fetch(`http://${api}/api/preferences/${prefId}`,{
+                 console.log('prefId', prefId);
+                 fetch(`${api}/api/preferences/${prefId}`,{
                   method: 'POST',
                   headers: {
                     'Accept': 'application/json',
@@ -104,7 +105,6 @@ class SetUpPage extends React.Component {
                 })
                 .then ( ( res ) => {return res.json()})
                 .then ( ( data ) => {
-                  console.log(data)
                   this.props.navigation.navigate('Dashboard', {user:navigation.state.params.user})
                 })
               }}

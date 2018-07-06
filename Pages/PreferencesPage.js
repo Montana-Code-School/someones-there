@@ -5,8 +5,8 @@ import ModalExample from '../Components/Modal.js';
 
 const { manifest } = Expo.Constants;
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
-  manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
-  `http://pure-ridge-12887.herokuapp.com/api/users`
+  'http://' + manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
+  `https://pure-ridge-12887.herokuapp.com`
 
 
  class PreferencesPage extends React.Component {
@@ -25,8 +25,9 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
 
     componentDidMount(){
       const {navigation} = this.props;
-      let prefId = navigation.state.params.user.userPreferences;
-      fetch(`http://${api}/api/preferences/${prefId}`,{
+      console.log(navigation.state.params.user);
+      let prefId = navigation.state.params.user.userPreferences._id;
+      fetch(`${api}/api/preferences/${prefId}`,{
        method: 'GET',
        headers: {
          'Accept': 'application/json',
@@ -114,7 +115,7 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
                  let prefId = navigation.state.params.user.userPreferences
 
                  console.log('prefId', prefId);
-                 fetch(`http://${api}/api/preferences/${prefId}`,{
+                 fetch(`${api}/api/preferences/${prefId}`,{
                   method: 'POST',
                   headers: {
                     'Accept': 'application/json',
