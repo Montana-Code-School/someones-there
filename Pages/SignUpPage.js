@@ -13,8 +13,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Expo from 'expo';
 const { manifest } = Expo.Constants;
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
-  manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
-  `http://pure-ridge-12887.herokuapp.com/api/users`
+  'http://' + manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
+  `https://pure-ridge-12887.herokuapp.com`
 
 
 class SignUpPage extends React.Component {
@@ -111,14 +111,14 @@ class SignUpPage extends React.Component {
                  if (!isSet) {
                    let errorObj = {
                      error : true,
-                     message: 'all fields must be set'
+                     message: 'All fields must be set'
                    }
                    this.setState({
                      pageErrors : errorObj
                    })
                    return false;
                  } else {
-                   fetch(`http://${api}/api/users`,{
+                   fetch(`${api}/api/users`,{
                      method: 'POST',
                      headers: {
                        'Accept': 'application/json',
