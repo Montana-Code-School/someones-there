@@ -82,7 +82,6 @@ class SetUpPage extends React.Component {
                accessibilityLabel="Submit"
                onPress={(event) =>{
                  let prefId = navigation.state.params.user.userPreferences._id
-                 console.log('prefId', prefId);
                  fetch(`${api}/api/preferences/${prefId}`,{
                   method: 'POST',
                   headers: {
