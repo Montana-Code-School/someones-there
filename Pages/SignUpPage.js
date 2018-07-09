@@ -34,7 +34,6 @@ class SignUpPage extends React.Component {
     };
   }
   componentDidMount(){
-    console.log(manifest.debuggerHost);
   }
 
   static navigationOptions = {

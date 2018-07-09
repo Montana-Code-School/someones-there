@@ -4,6 +4,7 @@ import { Text, Button, Avatar, Card, FormInput } from 'react-native-elements';
 import NonAuthModal from '../Components/NonAuthModal';
 import {formField} from '../Pages/SignUpPage';
 import Expo from 'expo';
+import { withNavigation } from 'react-navigation';
 
 const { manifest } = Expo.Constants;
 
@@ -12,6 +13,15 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
   `https://pure-ridge-12887.herokuapp.com`
 
 class LoginPage extends React.Component {
+
+  constructor(props){
+    super(props);
+    this.state = {
+        email: '',
+        password: ''
+    };
+  }
+
 
   static navigationOptions = {
     title: "Login Page",
@@ -24,13 +34,14 @@ class LoginPage extends React.Component {
         <NonAuthModal />
         <Card title="Login">
           <View>
-              <FormInput
+              <FormInput id = {`email`}
               placeholder = "Email"
-              // value = {navigation.state.params.user.email}
+              onChangeText={(email) => this.setState({email})}
               style={{height: 40}}
               />
               <FormInput
               placeholder = "Password"
+              // onChange={(e) => this.setState({password: })}
               style={{height: 40}}
               />
               <Button
@@ -43,21 +54,12 @@ class LoginPage extends React.Component {
                  icon={{name: 'user-circle', type: 'font-awesome'}}
                  accessibilityLabel="Login button"
                  onPress={ (event) =>{
-                  fetch(`${api}/api/users/`, {
-                     method: 'GET',
-                     headers: {
-                       'Accept': 'application/json',
-                       'Content-Type': 'application/json'
-                     },
-                     body: JSON.stringify(
-                       formField
-                     ),
-                  })
+                  fetch(`${api}/api/userFindByEmail/${this.state.email}`)
                   .then ( ( res ) => {return res.json()})
                   .then ( ( data ) => {
-                      console.log(data)
+                    console.log(data)
                       this.props.navigation.navigate('Dashboard',
-                        {user: data.users} //BUILD A ROUTE TO FIND USER BY EMAIL
+                        {user: data[0]} //BUILD A ROUTE TO FIND USER BY EMAIL
                       )
                   })
                }}

@@ -56,7 +56,6 @@ class LandingPage extends React.Component {
 
   componentDidMount() {
     this.initialRegister()
-    console.log(this.state.token, "this.state.token");
   }
 
   render() {
