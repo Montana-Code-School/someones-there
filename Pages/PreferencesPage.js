@@ -2,9 +2,7 @@ import React from 'react';
 import { StyleSheet, View, ScrollView, Picker } from 'react-native';
 import {Text, Button, Avatar, Card, FormLabel, FormInput, FormValidationMessage, CheckBox } from 'react-native-elements';
 import ModalExample from '../Components/Modal.js';
-
 const { manifest } = Expo.Constants;
-
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
   'http://' + manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
   `https://pure-ridge-12887.herokuapp.com`
@@ -24,31 +22,29 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
        };
     }
 
-    componentDidMount(){
-      const {navigation} = this.props;
-
-      let prefId = navigation.state.params.user.userPreferences._id;
-
-      fetch(`${api}/api/preferences/${prefId}`,{
-       method: 'GET',
-       headers: {
-         'Accept': 'application/json',
-         'Content-Type': 'application/json'
-       }
-      })
-      .then ( ( res ) => {return res.json()})
-      .then ( ( data ) => {
-        this.setState({
-           holidays: data.holidays,
-           exercise: data.exercise,
-           eating: data.eating,
-           wakingUp: data.wakingUp,
-           personalHygiene: data.personalHygiene,
-           sleep: data.sleep,
-           none: data.none })
-        console.log(data)
-      })
-    }
+  componentDidMount(){
+    const {navigation} = this.props;
+    let prefId = navigation.state.params.user.userPreferences;
+     console.log(prefId);
+    fetch(`${api}/api/preferences/${prefId}`,{
+     method: 'GET',
+     headers: {
+       'Accept': 'application/json',
+       'Content-Type': 'application/json'
+     }
+    })
+    .then ( ( res ) => {return res.json()})
+    .then ( ( data ) => {
+      this.setState({
+         holidays: data.holidays,
+         exercise: data.exercise,
+         eating: data.eating,
+         wakingUp: data.wakingUp,
+         personalHygiene: data.personalHygiene,
+         sleep: data.sleep,
+         none: data.none })
+    })
+  }
 
   render() {
     const {navigation} = this.props;
@@ -112,10 +108,7 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
                backgroundColor="#0b2793"
                accessibilityLabel="Update"
                onPress={(event) =>{
-
                  let prefId = navigation.state.params.user.userPreferences
-
-                 console.log('prefId', prefId);
                  fetch(`${api}/api/preferences/${prefId}`,{
                   method: 'POST',
                   headers: {
@@ -135,10 +128,7 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
                 })
                 .then ( ( res ) => {return res.json()})
                 .then ( ( data ) => {
-                  console.log(data)
-
                   this.props.navigation.navigate('Dashboard')
-
                 })
               }}
             />
@@ -149,9 +139,6 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
   }
 }
 
-//Wrapping the entire component in
-//the withNavigation function allows us to
-//access this.props.navigation.navigate
 export default (PreferencesPage);
 const styles = StyleSheet.create({
 buttonStyle: {

@@ -130,10 +130,9 @@ class SignUpPage extends React.Component {
                    })
                     .then ( ( res ) => {return res.json()})
                     .then ( ( data ) => {
-                      console.log( data )
                       this.props.navigation.navigate('SetUp', {user: data.user})
                    })
-                  }
+                 }
                 }
                }
              />
@@ -143,9 +142,6 @@ class SignUpPage extends React.Component {
   }
 }
 
-//Wrapping the entire component in
-//the withNavigation function allows us to
-//access this.props.navigation.navigate
 export default (SignUpPage)
 
 const styles = StyleSheet.create({

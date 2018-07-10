@@ -45,7 +45,6 @@ const RootStack = createStackNavigator(
 export default class App extends React.Component{
 //Rendering the rootstack which is setting our navigation
   render(){
-    console.log(api);
     return <RootStack /> ;
   }
 }
