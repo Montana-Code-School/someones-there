@@ -41,7 +41,7 @@ class SignUpPage extends React.Component {
   };
   render() {
     return (
-      <View>
+      <View style={styles.background}>
       <NonAuthModal/>
         <Card
           title='Sign Up'
@@ -156,5 +156,8 @@ const styles = StyleSheet.create({
   },
   containerCard: {
     padding: 40
+  },
+  background: {
+    backgroundColor: "#83B5D1"
   }
 })

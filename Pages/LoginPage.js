@@ -29,6 +29,8 @@ class LoginPage extends React.Component {
     return (
       <ScrollView style={styles.container}>
         <NonAuthModal />
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
         <Card title="Login">
           <View>
               <FormInput id = {`email`}
@@ -36,6 +38,7 @@ class LoginPage extends React.Component {
               onChangeText={(email) => this.setState({email})}
               style={{height: 40}}
               />
+              <Text>{'\n'}</Text>
               <FormInput
               placeholder = "Password"
               // onChange={(e) => this.setState({password: })}
@@ -70,7 +73,7 @@ class LoginPage extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#91e4fb',
+    backgroundColor: '#83B5D1',
   }
 })
 

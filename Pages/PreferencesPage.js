@@ -149,6 +149,6 @@ textStyle: {
 },
 container: {
   flex: 1,
-  backgroundColor: '#91e4fb',
+  backgroundColor: '#83B5D1',
   }
 })

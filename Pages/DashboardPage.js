@@ -28,7 +28,7 @@ import ModalExample from '../Components/Modal';
       const {navigation} = this.props;
       console.log("nav", navigation);
         return (
-          <ScrollView>
+          <ScrollView style={styles.container}>
             <ModalExample user = {navigation.state.params.user}/>
           <View style={styles.titleContainer}>
             <Text h2>Welcome, {navigation.state.params.user.firstName}</Text>
@@ -53,7 +53,7 @@ import ModalExample from '../Components/Modal';
 const styles = StyleSheet.create({
 container: {
   flex: 1,
-  backgroundColor: '#91e4fb',
+  backgroundColor: '#83B5D1',
 },
 titleContainer: {
   justifyContent: 'space-evenly',

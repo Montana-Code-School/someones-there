@@ -64,12 +64,15 @@ class LandingPage extends React.Component {
         <View style={styles.titleContainer}>
         </View>
         <View style={styles.imageView}>
+        <Text>{'\n'}</Text>
+        <Text>{'\n'}</Text>
            <Image
              style={styles.pic}
              source={require('../placement-pictures/navi.png')}
             />
-            <Text h3></Text>
+            <Text>{'\n'}</Text>
             <Text style={styles.taglineStyle}>Always have someone there for you.</Text>
+            <Text>{'\n'}</Text>
               <View style={styles.buttons}>
                 <Button
                    buttonStyle = {styles.buttonStyle}
@@ -114,7 +117,7 @@ export default (LandingPage);
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#91e4fb',
+    backgroundColor: '#83B5D1',
   },
   titleContainer: {
     justifyContent: 'space-evenly',
