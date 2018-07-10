@@ -5,15 +5,14 @@ import LandingPage from '../Pages/LandingPage';
 import HelpPage from '../Pages/HelpPage';
 import {Button} from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
-
 import {
    Modal,
    Text,
    TouchableHighlight,
    View,
    StyleSheet
-}
-from 'react-native'
+ }
+ from 'react-native'
 
 class ModalExample extends Component {
    state = {
@@ -48,6 +47,7 @@ class ModalExample extends Component {
                   backgroundColor="#0b2793"
                   title='Preferences' onPress={ () => {
                     this.props.navigation.navigate("Preferences", {user:this.props.user})
+                    console.log("this.props.user", this.props.user.userPreferences);
                     this.toggleModal(!this.state.modalVisible)
                   }}/>
 
@@ -76,12 +76,10 @@ class ModalExample extends Component {
 
                   <TouchableHighlight onPress = {() => {
                      this.toggleModal(!this.state.modalVisible)}}>
-
                      <Text style = {styles.text}>Cancel</Text>
                   </TouchableHighlight>
                </View>
             </Modal>
-
             <TouchableHighlight onPress = {() => {this.toggleModal(true)}}>
                <Text style = {styles.text}>Menu</Text>
             </TouchableHighlight>

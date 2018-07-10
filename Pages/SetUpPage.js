@@ -112,9 +112,6 @@ class SetUpPage extends React.Component {
   }
 }
 
-//Wrapping the entire component in
-//the withNavigation function allows us to
-//access this.props.navigation.navigate
 export default (SetUpPage);
 
 const styles = StyleSheet.create({

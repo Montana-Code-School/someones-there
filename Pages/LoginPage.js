@@ -5,9 +5,7 @@ import NonAuthModal from '../Components/NonAuthModal';
 import {formField} from '../Pages/SignUpPage';
 import Expo from 'expo';
 import { withNavigation } from 'react-navigation';
-
 const { manifest } = Expo.Constants;
-
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
   'http://' + manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
   `https://pure-ridge-12887.herokuapp.com`
@@ -21,7 +19,6 @@ class LoginPage extends React.Component {
         password: ''
     };
   }
-
 
   static navigationOptions = {
     title: "Login Page",
@@ -57,9 +54,8 @@ class LoginPage extends React.Component {
                   fetch(`${api}/api/userFindByEmail/${this.state.email}`)
                   .then ( ( res ) => {return res.json()})
                   .then ( ( data ) => {
-                    console.log(data)
                       this.props.navigation.navigate('Dashboard',
-                        {user: data[0]} //BUILD A ROUTE TO FIND USER BY EMAIL
+                        {user: data[0]}
                       )
                   })
                }}
@@ -78,8 +74,4 @@ const styles = StyleSheet.create({
   }
 })
 
-
-//Wrapping the entire component in
-//the withNavigation function allows us to
-//access this.props.navigation.navigate
 export default (LoginPage);

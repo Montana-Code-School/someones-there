@@ -94,7 +94,7 @@ class LandingPage extends React.Component {
                    accessibilityLabel="Log In"
                    onPress={ () => this.props.navigation.navigate('LogIn')}
                 />
-          </View>
+             </View>
         </View>
         <View>
           <Notification
@@ -108,10 +108,6 @@ class LandingPage extends React.Component {
     );
   }
 }
-
-//Wrapping the entire component in
-//the withNavigation function allows us to
-//access this.props.navigation.navigate
 
 export default (LandingPage);
 

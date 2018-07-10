@@ -26,7 +26,7 @@ class CrisisPage extends React.Component {
             you to utilize if you ever
             feel that you are in crisis.</Text>
           <Text style={styles.headingStyle} h4>• National Suicide Prevention Hotline</Text>
-          <Text style={styles.textStyle}>The National Suicide Prevention Lifeline is a national network of local crisis centers that provides free and confidential emotional support to people in suicidal crisis or emotional distress 24 hours a day, 7 days a week. We're committed to improving crisis services and advancing suicide prevention by empowering individuals, advancing professional best practices, and building awareness.</Text>
+          <Text style={styles.textStyle}>The National Suicide Prevention Lifeline is a national network of local crisis centers that provides free and confidential emotional support to people in suicidal crisis or emotional distress 24 hours a day, 7 days a week. We are committed to improving crisis services and advancing suicide prevention by empowering individuals, advancing professional best practices, and building awareness.</Text>
           <Text style={styles.headingStyle} h4>• Better Help</Text>
           <Text style={styles.textStyle}>Convenient, affordable, private online counseling. Anytime, anywhere.</Text>
         </Card>

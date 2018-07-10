@@ -51,7 +51,6 @@ class NonAuthModal extends Component {
                     this.toggleModal(!this.state.modalVisible)
                   }}/>
 
-
                   <Button
                   medium
                   rounded
@@ -71,7 +70,6 @@ class NonAuthModal extends Component {
                   </TouchableHighlight>
                </View>
             </Modal>
-
             <TouchableHighlight onPress = {() => {this.toggleModal(true)}}>
                <Text style = {styles.text}>Menu</Text>
             </TouchableHighlight>

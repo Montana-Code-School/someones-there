@@ -19,8 +19,6 @@ class Notification extends Component {
   }
 
 componentDidMount() {
-  console.log('note');
-  console.log(this.props.token);
   if (this.props.token != null ){
   sendPushNotification(this.props.token, 'baloney', 'sandwich')
   }

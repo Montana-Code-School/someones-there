@@ -29,7 +29,7 @@ import ModalExample from '../Components/Modal';
         return (
           <ScrollView>
             <ModalExample user = {navigation.state.params.user}/>
-
+           console.log("navigation.state.params.user", navigation.state.params.user);
           <View style={styles.titleContainer}>
             <Text h2>Welcome, {navigation.state.params.user.firstName}</Text>
           </View>
@@ -44,11 +44,11 @@ import ModalExample from '../Components/Modal';
               <Text h3></Text>
               <Text style={styles.taglineStyle}>The future belongs to those who believe in the beauty of their dreams.</Text>
               <Text style={styles.taglineStyle}>- Eleanor Roosevelt</Text>
-            </View>
+          </View>
         </ScrollView>
-    );
-  }
-}
+       );
+     }
+   }
 
 const styles = StyleSheet.create({
 container: {
@@ -88,7 +88,4 @@ taglineStyle: {
 }
 });
 
-//Wrapping the entire component in
-//the withNavigation function allows us to
-//access this.props.navigation.navigate
 export default (DashboardPage);
