@@ -25,14 +25,13 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
   componentDidMount(){
     const {navigation} = this.props;
     let prefId = navigation.state.params.user.userPreferences;
-     console.log(prefId);
     fetch(`${api}/api/preferences/${prefId}`,{
      method: 'GET',
      headers: {
        'Accept': 'application/json',
        'Content-Type': 'application/json'
      }
-    })
+   })
     .then ( ( res ) => {return res.json()})
     .then ( ( data ) => {
       this.setState({
@@ -150,6 +149,6 @@ textStyle: {
 },
 container: {
   flex: 1,
-  backgroundColor: '#91e4fb',
+  backgroundColor: '#83B5D1',
   }
 })

@@ -92,17 +92,17 @@ export default withNavigation(ModalExample);
 const styles = StyleSheet.create ({
    container: {
       alignItems: 'center',
-      backgroundColor: '#ede3f2',
+      backgroundColor: '#2F3E91',
       padding: 10
    },
    modal: {
       flex: 1,
       alignItems: 'center',
-      backgroundColor: 'yellow',
+      backgroundColor: '#E7ECEF',
       padding: 25
    },
    text: {
-      color: '#3f2949',
+      color: '#A3CEF1',
       marginTop: 10,
       fontSize: 25
    }
