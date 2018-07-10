@@ -53,7 +53,7 @@ class LoginPage extends React.Component {
                  onPress={ (event) =>{
                   fetch(`${api}/api/userFindByEmail/${this.state.email}`)
                   .then ( ( res ) => {return res.json()})
-                  .then ( ( data ) => {
+                  .then ( ( data ) => {console.log("data login", data);
                       this.props.navigation.navigate('Dashboard',
                         {user: data[0]}
                       )

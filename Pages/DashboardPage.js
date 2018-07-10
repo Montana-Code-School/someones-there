@@ -26,10 +26,10 @@ import ModalExample from '../Components/Modal';
 
     render() {
       const {navigation} = this.props;
+      console.log("nav", navigation);
         return (
           <ScrollView>
             <ModalExample user = {navigation.state.params.user}/>
-           console.log("navigation.state.params.user", navigation.state.params.user);
           <View style={styles.titleContainer}>
             <Text h2>Welcome, {navigation.state.params.user.firstName}</Text>
           </View>
