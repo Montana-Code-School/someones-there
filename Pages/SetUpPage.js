@@ -20,7 +20,7 @@ class SetUpPage extends React.Component {
         none: false
       };
   }
-  
+
   render() {
     const {navigation} = this.props;
     return (
@@ -101,10 +101,10 @@ class SetUpPage extends React.Component {
                     }),
                 })
                 .then ( ( res ) => {return res.json()})
-                .then ( ( data ) => {console.log("navigation state", navigation.state.params.user.userPreferences._id);
-                  navigation.state.params.user.userPreferences = navigation.state.params.user.userPreferences._id
+                .then ( ( data ) =>
+                  navigation.state.params.user.userPreferences = navigation.state.params.user.userPreferences._id,
                   this.props.navigation.navigate('Dashboard', {user:navigation.state.params.user})
-                })
+                )
               }}
             />
           </View>
