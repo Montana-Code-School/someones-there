@@ -47,7 +47,6 @@ class ModalExample extends Component {
                   backgroundColor="#0b2793"
                   title='Preferences' onPress={ () => {
                     this.props.navigation.navigate("Preferences", {user:this.props.user})
-                    console.log("this.props.user", this.props.user.userPreferences);
                     this.toggleModal(!this.state.modalVisible)
                   }}/>
 
