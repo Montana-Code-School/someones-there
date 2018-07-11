@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, Image } from 'react-native';
-import {Text, Button, Avatar } from 'react-native-elements';
+import { Text, Button, Avatar } from 'react-native-elements';
 import SignUpPage from './Pages/SignUpPage.js';
 import SetUpPage from './Pages/SetUpPage.js';
 import PreferencesPage from './Pages/PreferencesPage.js';
@@ -17,7 +17,6 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
   `http://pure-ridge-12887.herokuapp.com/api/users`
 
 const RootStack = createStackNavigator(
-  // Creating the navigation for our application
   {
     Landing: LandingPage,
     SignUp: SignUpPage,
@@ -28,22 +27,18 @@ const RootStack = createStackNavigator(
     Preferences: PreferencesPage,
   },
   {
-    //Setting the initial route for our application
     initialRouteName: 'Landing',
     headerMode: "none",
     navigationOptions: {
       headerStyle:{
-        //setting the purple color of the nav bar
         backgroundColor: "#6d2493"
       },
-      //setting the title and arrow color in the nav bar
-      headerTintColor: "#ffffff",
+      headerTintColor: "#ffffff"
     }
   }
 );
 
 export default class App extends React.Component{
-//Rendering the rootstack which is setting our navigation
   render(){
     return <RootStack /> ;
   }

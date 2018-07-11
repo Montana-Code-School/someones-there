@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import LandingPage from '../Pages/LandingPage';
 import SignUpPage from '../Pages/SignUpPage';
 import LoginPage from '../Pages/LoginPage';
-import {Button} from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { withNavigation } from 'react-navigation'
 import {
    Modal,
@@ -77,7 +77,6 @@ class NonAuthModal extends Component {
       )
    }
 }
-export default withNavigation(NonAuthModal);
 
 const styles = StyleSheet.create ({
    container: {
@@ -97,3 +96,5 @@ const styles = StyleSheet.create ({
       fontSize: 25
    }
 })
+
+export default withNavigation(NonAuthModal);

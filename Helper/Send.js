@@ -1,6 +1,4 @@
-
-
- const sendPushNotification = (token,title,body) => {
+const sendPushNotification = (token,title,body) => {
   return fetch('https://exp.host/--/api/v2/push/send', {
     body: JSON.stringify({
       to: token,

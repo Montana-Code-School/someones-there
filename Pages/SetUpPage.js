@@ -1,12 +1,13 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, Picker } from 'react-native';
-import {Text, Button, Avatar, Card, FormLabel, FormInput, FormValidationMessage, CheckBox } from 'react-native-elements';
+import { Text, Button, Avatar, Card, FormLabel, FormInput, FormValidationMessage, CheckBox } from 'react-native-elements';
 const { manifest } = Expo.Constants;
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
   'http://' + manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
   `https://pure-ridge-12887.herokuapp.com`
 
 class SetUpPage extends React.Component {
+
   constructor (props) {
     super(props);
       this.state = {
@@ -19,6 +20,7 @@ class SetUpPage extends React.Component {
         none: false
       };
   }
+  
   render() {
     const {navigation} = this.props;
     return (
@@ -82,7 +84,7 @@ class SetUpPage extends React.Component {
                accessibilityLabel="Submit"
                onPress={(event) =>{
                  let prefId = navigation.state.params.user.userPreferences._id
-                 fetch(`${api}/api/preferences/${prefId}`,{
+                 fetch(`${api}/api/preferences/${prefId}`, {
                   method: 'POST',
                   headers: {
                     'Accept': 'application/json',
@@ -96,8 +98,7 @@ class SetUpPage extends React.Component {
                     personalHygiene: this.state.personalHygiene,
                     sleep: this.state.sleep,
                     none: this.state.none
-                    }
-                  ),
+                    }),
                 })
                 .then ( ( res ) => {return res.json()})
                 .then ( ( data ) => {console.log("navigation state", navigation.state.params.user.userPreferences._id);
@@ -113,18 +114,18 @@ class SetUpPage extends React.Component {
   }
 }
 
-export default (SetUpPage);
-
 const styles = StyleSheet.create({
-buttonStyle: {
-  margin: 10,
+  buttonStyle: {
+    margin: 10,
   },
-textStyle: {
-  textAlign: 'center',
-  margin: 10
-},
-container: {
-  flex: 1,
-  backgroundColor: '#83B5D1',
+  textStyle: {
+    textAlign: 'center',
+    margin: 10
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#83B5D1',
   }
 })
+
+export default (SetUpPage);

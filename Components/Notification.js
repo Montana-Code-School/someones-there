@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   ScrollView,
   StyleSheet,
@@ -8,33 +8,34 @@ import {
   TouchableOpacity,
   KeyboardAvoidingView
 } from 'react-native';
-import {Text, Button, Avatar } from 'react-native-elements';
+import { Text, Button, Avatar } from 'react-native-elements';
 import { Permissions, Notifications } from 'expo';
 import { withNavigation } from 'react-navigation';
 import sendPushNotification from '../Helper/Send.js'
 
 class Notification extends Component {
+
   constructor(props) {
     super(props);
   }
 
-componentDidMount() {
-  if (this.props.token != null ){
-  sendPushNotification(this.props.token, 'baloney', 'sandwich')
+  componentDidMount() {
+    if (this.props.token != null ){
+      sendPushNotification(this.props.token, 'baloney', 'sandwich')
+    }
   }
-}
-// THURSDAY: HAVING PROBLEMS WITH MOVING IN AND OUT OF ASYNC
-render() {
-   return (
-     <View>
-     {this.props.notification ? (
+  render() {
+     return (
        <View>
-         <Text style={styles1.text}>Last Notification:</Text>
-         <Text style={styles1.text}>{JSON.stringify(this.props.notification.data.message)}</Text>
+       {this.props.notification ? (
+         <View>
+           <Text style={styles1.text}>Last Notification:</Text>
+           <Text style={styles1.text}>{JSON.stringify(this.props.notification.data.message)}</Text>
+         </View>
+       ) : null}
        </View>
-     ) : null}
-     </View>
-  )}
+     )
+   }
 }
 
 const styles1 = StyleSheet.create({
