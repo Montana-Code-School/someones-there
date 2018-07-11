@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ScrollView, Picker } from 'react-native';
-import {Text, Button, Avatar, Card, FormLabel, FormInput, FormValidationMessage, CheckBox } from 'react-native-elements';
+import { Text, Button, Avatar, Card, FormLabel, FormInput, FormValidationMessage, CheckBox } from 'react-native-elements';
 import ModalExample from '../Components/Modal.js';
 const { manifest } = Expo.Constants;
 const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts.dev?
@@ -22,7 +22,7 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
        };
     }
 
-  componentDidMount(){
+  componentDidMount() {
     const {navigation} = this.props;
     let prefId = navigation.state.params.user.userPreferences;
     fetch(`${api}/api/preferences/${prefId}`,{
@@ -31,7 +31,7 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
        'Accept': 'application/json',
        'Content-Type': 'application/json'
      }
-   })
+    })
     .then ( ( res ) => {return res.json()})
     .then ( ( data ) => {
       this.setState({
@@ -42,7 +42,7 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
          personalHygiene: data.personalHygiene,
          sleep: data.sleep,
          none: data.none })
-    })
+     })
   }
 
   render() {
@@ -106,24 +106,23 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
                color="#FFFFFF"
                backgroundColor="#0b2793"
                accessibilityLabel="Update"
-               onPress={(event) =>{
+               onPress={(event) => {
                  let prefId = navigation.state.params.user.userPreferences
                  fetch(`${api}/api/preferences/${prefId}`,{
-                  method: 'POST',
-                  headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({
-                    holidays: this.state.holidays,
-                    exercise: this.state.exercise,
-                    eating: this.state.eating,
-                    wakingUp: this.state.wakingUp,
-                    personalHygiene: this.state.personalHygiene,
-                    sleep: this.state.sleep,
-                    none: this.state.none
-                    }
-                  ),
+                   method: 'POST',
+                   headers: {
+                     'Accept': 'application/json',
+                     'Content-Type': 'application/json'
+                   },
+                   body: JSON.stringify({
+                     holidays: this.state.holidays,
+                     exercise: this.state.exercise,
+                     eating: this.state.eating,
+                     wakingUp: this.state.wakingUp,
+                     personalHygiene: this.state.personalHygiene,
+                     sleep: this.state.sleep,
+                     none: this.state.none
+                   }),
                 })
                 .then ( ( res ) => {return res.json()})
                 .then ( ( data ) => {
@@ -138,17 +137,18 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
   }
 }
 
-export default (PreferencesPage);
 const styles = StyleSheet.create({
-buttonStyle: {
-  margin: 10,
+  buttonStyle: {
+    margin: 10
   },
-textStyle: {
-  textAlign: 'center',
-  margin: 10
-},
-container: {
-  flex: 1,
-  backgroundColor: '#83B5D1',
+  textStyle: {
+    textAlign: 'center',
+    margin: 10
+  },
+  container: {
+    flex: 1,
+    backgroundColor: '#83B5D1'
   }
 })
+
+export default (PreferencesPage);

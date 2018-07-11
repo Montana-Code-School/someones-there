@@ -16,7 +16,6 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
   'http://' + manifest.debuggerHost.split(`:`).shift().concat(`:3000`):
   `https://pure-ridge-12887.herokuapp.com`
 
-
 class SignUpPage extends React.Component {
 
   constructor(props){
@@ -33,16 +32,15 @@ class SignUpPage extends React.Component {
         }
     };
   }
-  componentDidMount(){
-  }
 
   static navigationOptions = {
     title: "Sign Up",
   };
+
   render() {
     return (
       <View style={styles.background}>
-      <NonAuthModal/>
+        <NonAuthModal/>
         <Card
           title='Sign Up'
           titleStyle = {styles.cardTitle}
@@ -107,7 +105,7 @@ class SignUpPage extends React.Component {
                      isSet = false;
                    }
                  }
-                 if (!isSet){
+                 if (!isSet) {
                    let errorObj = {
                      error : true,
                      message: 'All fields must be set'
@@ -117,7 +115,7 @@ class SignUpPage extends React.Component {
                    })
                    return false;
                  }
-                 else{
+                 else {
                    fetch(`${api}/api/users`,{
                      method: 'POST',
                      headers: {
@@ -142,8 +140,6 @@ class SignUpPage extends React.Component {
   }
 }
 
-export default (SignUpPage)
-
 const styles = StyleSheet.create({
   formInput: {
     margin: 10
@@ -161,3 +157,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#83B5D1"
   }
 })
+
+export default (SignUpPage)

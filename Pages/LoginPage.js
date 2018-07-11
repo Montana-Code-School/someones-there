@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollView, StyleSheet, View, AppRegistry } from 'react-native';
 import { Text, Button, Avatar, Card, FormInput } from 'react-native-elements';
 import NonAuthModal from '../Components/NonAuthModal';
-import {formField} from '../Pages/SignUpPage';
+import { formField } from '../Pages/SignUpPage';
 import Expo from 'expo';
 import { withNavigation } from 'react-navigation';
 const { manifest } = Expo.Constants;
@@ -33,36 +33,36 @@ class LoginPage extends React.Component {
         <Text>{'\n'}</Text>
         <Card title="Login">
           <View>
-              <FormInput id = {`email`}
+            <FormInput id = {`email`}
               placeholder = "Email"
               onChangeText={(email) => this.setState({email})}
               style={{height: 40}}
-              />
-              <Text>{'\n'}</Text>
-              <FormInput
+            />
+            <Text>{'\n'}</Text>
+            <FormInput
               placeholder = "Password"
               // onChange={(e) => this.setState({password: })}
               style={{height: 40}}
-              />
-              <Button
-                 medium
-                 rounded
-                 style={{padding: 30}}
-                 title="Login"
-                 color="#FFFFFF"
-                 backgroundColor="#0b2793"
-                 icon={{name: 'user-circle', type: 'font-awesome'}}
-                 accessibilityLabel="Login button"
-                 onPress={ (event) =>{
-                  fetch(`${api}/api/userFindByEmail/${this.state.email}`)
-                  .then ( ( res ) => {return res.json()})
-                  .then ( ( data ) => {console.log("data login", data);
-                      this.props.navigation.navigate('Dashboard',
-                        {user: data[0]}
-                      )
-                  })
-               }}
-              />
+            />
+            <Button
+              medium
+              rounded
+              style={{padding: 30}}
+              title="Login"
+              color="#FFFFFF"
+              backgroundColor="#0b2793"
+              icon={{name: 'user-circle', type: 'font-awesome'}}
+              accessibilityLabel="Login button"
+              onPress={ (event) =>{
+                fetch(`${api}/api/userFindByEmail/${this.state.email}`)
+                .then ( ( res ) => {return res.json()})
+                .then ( ( data ) =>
+                    this.props.navigation.navigate('Dashboard',
+                      {user: data[0]}
+                    )
+                )
+              }}
+            />
           </View>
         </Card>
       </ScrollView>
@@ -73,7 +73,7 @@ class LoginPage extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#83B5D1',
+    backgroundColor: '#83B5D1'
   }
 })
 

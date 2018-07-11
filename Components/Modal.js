@@ -3,7 +3,7 @@ import DashboardPage from '../Pages/DashboardPage.js';
 import PreferencesPage from '../Pages/PreferencesPage';
 import LandingPage from '../Pages/LandingPage';
 import HelpPage from '../Pages/HelpPage';
-import {Button} from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import {
    Modal,
@@ -21,7 +21,7 @@ class ModalExample extends Component {
    toggleModal(visible) {
       this.setState({ modalVisible: visible });
    }
-   render() {
+    render() {
       return (
          <View style = {styles.container}>
             <Modal animationType = {"fade"} transparent = {true}
