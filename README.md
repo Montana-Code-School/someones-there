@@ -1,5 +1,4 @@
 #### To use this repository:
-
 First, clone our front end repository:
     `git clone https://github.com/Montana-Code-School/someones-there`<br><br>
 Second, clone our back end repository:
@@ -9,27 +8,21 @@ Then:
 
 To run the application on your mobile device,
      install the Expo phone application.<br><br>
-      Then, run `npm run start` followed by `exp send -s <your phone number or email>`. <br><br>
+      Then, run `npm run start` followed by `exp send -s <your phone number or email>`.<br><br>
       This will send a link to your phone that will open the application.<br><br>
 If you want to run the iOS or Android simulator on your computer, then
      install Expo EDE: https://expo.io/tools#xde
 
-
-
-
 ### Scripts
- To run on android devices, use terminal command `npm run android`. <br>
+To run on android devices, use terminal command `npm run android`.<br>
 
- To run on iOS devices, use command `npm run ios`.<br>
+To run on iOS devices, use command `npm run ios`.<br>
 
-To run the server, use command `npm run start`. <br>
+To run the server in development, use command `npm run dev`.<br>
+
+To run the server in production, use command `npm run start`.<br>
 
 To run the build, use command `npm run build`.
-
-
- RootStack is located in App.js for the createStackNavigator.<br>
-
-`onPress={ () => this.props.navigation.navigate('//name in RootStack to corresponding page')}` is used in our buttons using 'react-navigation' to navigate to pages.
 
 ### Libraries used:
 - react-native-elements - used for styled components:
