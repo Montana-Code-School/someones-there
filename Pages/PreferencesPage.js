@@ -56,7 +56,7 @@ const api = (typeof manifest.packagerOpts === `object`) && manifest.packagerOpts
             <Text style = {styles.textStyle}>Plus, this information will help me customize your experience.</Text>
           </View>
           <View>
-            <Text h4 style = {styles.textStyle}>Would you like me send you custom greeting on holidays?</Text>
+            <Text h4 style = {styles.textStyle}>Would you like me to send you custom greetings on holidays?</Text>
             <CheckBox
               title='Yes'
               onPress={() => this.setState({holidays: !this.state.holidays})}

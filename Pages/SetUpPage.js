@@ -101,9 +101,10 @@ class SetUpPage extends React.Component {
                     }),
                 })
                 .then ( ( res ) => {return res.json()})
-                .then ( ( data ) =>
-                  navigation.state.params.user.userPreferences = navigation.state.params.user.userPreferences._id,
-                  this.props.navigation.navigate('Dashboard', {user:navigation.state.params.user})
+                .then ( ( data ) => {
+                    navigation.state.params.user.userPreferences = navigation.state.params.user.userPreferences._id;
+                    this.props.navigation.navigate('Dashboard', {user:navigation.state.params.user})
+                  }
                 )
               }}
             />

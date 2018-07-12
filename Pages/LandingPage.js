@@ -9,48 +9,10 @@ import {
   KeyboardAvoidingView
 } from 'react-native';
 import { Text, Button, Avatar } from 'react-native-elements';
-import { Permissions, Notifications } from 'expo';
 
 class LandingPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      token: null,
-      notification: null,
-      title: "hello",
-      body: "say something"
-    };
-
-    this.initialRegister = this.initialRegister.bind(this)
-  }
-
-  async initialRegister() {
-     const { status } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
-
-     if (status !== 'granted') {
-       const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
-       if (status !== 'granted') {
-         return;
-       }
-     }
-
-     const token = await Notifications.getExpoPushTokenAsync();
-
-     this.subscription = Notifications.addListener(this.handleNotification);
-
-    this.setState({
-      token
-    });
-  }
-
-  handleNotification = notification => {
-    this.setState({
-      notification,
-    });
-  };
-
-  componentDidMount() {
-    this.initialRegister()
   }
 
   render() {
